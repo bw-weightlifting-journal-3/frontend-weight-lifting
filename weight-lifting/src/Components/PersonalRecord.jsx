@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function PersonalRecord() {
+    /*Test text to see if my pushes are working */
+
     const [maxWeight, setMaxWeight] = useState([])
 
     useEffect(() => {
