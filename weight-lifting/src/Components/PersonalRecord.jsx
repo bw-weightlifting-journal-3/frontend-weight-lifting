@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function PersonalRecord() {
-    /*Test text to see if my pushes are working */
 
     const [maxWeight, setMaxWeight] = useState([])
 
@@ -10,10 +9,10 @@ export default function PersonalRecord() {
 
         const getMaxWeight = () => {
           axios
-          .get("https://bw-weightlifting-journal.herokuapp.com/")
+          .get("https://bw-weightlifting-journal.herokuapp.com/api/user")
           .then(
             res => {
-              setMaxWeight(res./*fill this out later*/)
+            //   setMaxWeight(res./*fill this out later*/)
               console.log("Succesfully recieved data", res)
             }
           )
