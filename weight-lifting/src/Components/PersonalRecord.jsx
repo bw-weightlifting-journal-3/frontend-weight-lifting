@@ -18,8 +18,8 @@ export default function PersonalRecord() {
           .get("https://bw-weightlifting-journal.herokuapp.com/api/user")
           .then(
             res => {
-              setMaxWeight(400)
-              setRepsOfMaxWeight(9)
+            //   setMaxWeight(res./*fill this out later*/)
+            //   setRepsOfMaxWeight(res./*fill this out later*/)
 
               console.log("Succesfully recieved data", res)
             }
@@ -30,12 +30,16 @@ export default function PersonalRecord() {
             }
           )
         };
+
+        setMaxWeight(400)
+        setRepsOfMaxWeight(9)
+
         getMaxWeight();
     
       }, []);
 
     return(
-        <div className="pr">
+        <div className="pr-component">
             <div className="pr-title container">
                 <p>Personal Record</p>
             </div>
@@ -43,19 +47,19 @@ export default function PersonalRecord() {
             <div className="pr-numbers container">
 
                 <div className="pr-max-weight container">
-                    <h1 className="pr-max-weight-number">{maxWeight}400</h1>
+                    <h1 className="pr-max-weight-number">{maxWeight}</h1>
                     <p className="units-of-measure lbs">LBS</p>
                 </div>
 
                 <div className="pr-max-reps container">
-                    <h1 className="pr-max-reps-number">{repsOfMaxWeight}9</h1>
+                    <h1 className="pr-max-reps-number">{repsOfMaxWeight}</h1>
                     <p className="units-of-measure reps">REPS</p>
                 </div>
 
             </div>
 
             <div className="pr-exercise-body-region container">
-                <p className="pr-exercise-body-region">{/* PR Exercise Name */}* PR Exercise Name * | {/* PR Body Region Name */} PR Body Region Name *</p>
+                <p className="pr-exercise-body-region">{/* PR Exercise Name */}* PR Exercise Name *   |   {/* PR Body Region Name */} *PR Body Region Name *</p>
             </div>
         </div>
 
