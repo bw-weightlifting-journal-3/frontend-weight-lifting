@@ -10,6 +10,8 @@ function App() {
       <Router>
         <Route exact path="/login" component={Login} />
       </Router>
+      <WorkoutView />
+
     </div>
   );
 }
