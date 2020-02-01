@@ -69,16 +69,26 @@ export default function PersonalRecord() {
 
 
 
-// .pr {
+
+// .pr-component {
+//     max-width: 25%;
 //     color: white;
 //     background-color: black;
-//     width: 100%;
+//     margin: auto;
+//   }
+  
+//   .pr-title {
+//     display: flex;
+//     align-items: flex-start;
 //   }
   
 //   .pr-numbers {
 //     display: flex;
 //     flex-direction: row;
 //     justify-content: center;
+    
+//     border: 1px solid peru;
+  
 //   }
   
 //   .pr-max-weight {
@@ -93,7 +103,17 @@ export default function PersonalRecord() {
 //     align-content: bottom;
 //   }
   
-//   .units-of-measure {
+//   .lbs {
+//     padding-right: 20px;
+//     padding-left: 10px;
+//     align-self: flex-end;
+//   }
+  
+//   .reps {
 //     padding-right: 10px;
 //     padding-left: 10px;
+//     align-self: flex-end;
 //   }
+  
+//   /* border: 1px solid peru; */
+  
