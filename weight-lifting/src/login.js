@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
@@ -20,8 +19,8 @@ const Login = () => {
         inputField
       )
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
-        console.log(res.data.payload);
+        localStorage.setItem("token", res.data.token);
+        console.log(res);
       })
       .catch(err => {
         console.log("err", err);
@@ -48,7 +47,6 @@ const Login = () => {
         />
         <button typeof="submit">LogIn 🏋️‍</button>
       </form>
-      {/* <Link to="/signUp">Get Signed Up 💪</Link> */}
     </div>
   );
 };

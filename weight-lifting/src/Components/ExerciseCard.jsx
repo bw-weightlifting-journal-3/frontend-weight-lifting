@@ -10,7 +10,7 @@ const ExerciseCard = props => {
           {props.data.sets}Sets | {props.data.focus}
         </p>
       </div>
-      <img src={arrow} alt="arrow icon" />
+      <img src={Arrow} alt="arrow icon" />
     </div>
   );
 };
