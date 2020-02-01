@@ -18,7 +18,9 @@ const WorkoutView = () => {
       <h1>Placeholder Card</h1>
 
       {/* Link to the next page */}
-      <Button>Start Exercise → </Button>
+      <Button>
+        Start Exercise <img src='../assets/arrow.svg' />{' '}
+      </Button>
     </Wrapper>
   );
 };
