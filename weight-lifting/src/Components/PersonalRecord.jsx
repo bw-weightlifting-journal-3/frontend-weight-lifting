@@ -6,7 +6,7 @@ import axios from 'axios';
 
 // res./*fill this out later*/
 
-export default function PersonalRecord({ stats }) {
+export default function PersonalRecord() {
 
     const [maxWeight, setMaxWeight] = useState([])
     const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([])
