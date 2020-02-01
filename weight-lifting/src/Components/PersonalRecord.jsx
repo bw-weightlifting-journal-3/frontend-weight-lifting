@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// import PersonalRecord from "./Components/PersonalRecord"
+// <PersonalRecord/>
+
 export default function PersonalRecord() {
 
     const [maxWeight, setMaxWeight] = useState([])
