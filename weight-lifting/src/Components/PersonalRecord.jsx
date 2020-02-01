@@ -61,3 +61,35 @@ export default function PersonalRecord({ stats }) {
 
     );
 };
+
+
+
+
+// .pr {
+//     color: white;
+//     background-color: black;
+//     width: 100%;
+//   }
+  
+//   .pr-numbers {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//   }
+  
+//   .pr-max-weight {
+//     display: flex;
+//     flex-direction: row;
+//     align-content: bottom;
+//   }
+  
+//   .pr-max-reps {
+//     display: flex;
+//     flex-direction: row;
+//     align-content: bottom;
+//   }
+  
+//   .units-of-measure {
+//     padding-right: 10px;
+//     padding-left: 10px;
+//   }
