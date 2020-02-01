@@ -10,7 +10,7 @@ export default function PersonalRecord() {
 
         const getMaxWeight = () => {
           axios
-          .get("")
+          .get("https://bw-weightlifting-journal.herokuapp.com/")
           .then(
             res => {
               setMaxWeight(res./*fill this out later*/)
