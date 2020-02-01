@@ -4,6 +4,8 @@ import axios from 'axios';
 // import PersonalRecord from "./Components/PersonalRecord"
 // <PersonalRecord/>
 
+// res./*fill this out later*/
+
 export default function PersonalRecord({ stats }) {
 
     const [maxWeight, setMaxWeight] = useState([])
@@ -16,15 +18,15 @@ export default function PersonalRecord({ stats }) {
           .get("https://bw-weightlifting-journal.herokuapp.com/api/user")
           .then(
             res => {
-              setMaxWeight(res./*fill this out later*/)
-              setRepsOfMaxWeight(res./*fill this out later*/)
+              setMaxWeight(400)
+              setRepsOfMaxWeight(9)
 
               console.log("Succesfully recieved data", res)
             }
           )
           .catch(
             error => {
-              console.error('Server Error', error);
+              console.error('A Message From Me, Tyler. Your API Call Has An Error:', error);
             }
           )
         };
@@ -41,11 +43,13 @@ export default function PersonalRecord({ stats }) {
             <div className="pr-numbers container">
 
                 <div className="pr-max-weight container">
-                    <h1 className="pr-max-weight-number">{maxWeight}</h1>
+                    <h1 className="pr-max-weight-number">{maxWeight}400</h1>
+                    <p className="units-of-measure lbs">LBS</p>
                 </div>
 
                 <div className="pr-max-reps container">
-                    <h1 className="pr-max-reps-number">{repsOfMaxWeight}</h1>
+                    <h1 className="pr-max-reps-number">{repsOfMaxWeight}9</h1>
+                    <p className="units-of-measure reps">REPS</p>
                 </div>
 
             </div>
