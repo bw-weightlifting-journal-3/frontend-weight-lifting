@@ -4,9 +4,10 @@ import axios from 'axios';
 // import PersonalRecord from "./Components/PersonalRecord"
 // <PersonalRecord/>
 
-export default function PersonalRecord() {
+export default function PersonalRecord({ stats }) {
 
     const [maxWeight, setMaxWeight] = useState([])
+    const [maxReps, setMaxReps] = useState([])
 
     useEffect(() => {
 
