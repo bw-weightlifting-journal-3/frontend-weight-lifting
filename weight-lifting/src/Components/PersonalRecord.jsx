@@ -7,7 +7,7 @@ import axios from 'axios';
 export default function PersonalRecord({ stats }) {
 
     const [maxWeight, setMaxWeight] = useState([])
-    const [maxReps, setMaxReps] = useState([])
+    const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([])
 
     useEffect(() => {
 
@@ -16,7 +16,9 @@ export default function PersonalRecord({ stats }) {
           .get("https://bw-weightlifting-journal.herokuapp.com/api/user")
           .then(
             res => {
-            //   setMaxWeight(res./*fill this out later*/)
+              setMaxWeight(res./*fill this out later*/)
+              setRepsOfMaxWeight(res./*fill this out later*/)
+
               console.log("Succesfully recieved data", res)
             }
           )
@@ -39,11 +41,11 @@ export default function PersonalRecord({ stats }) {
             <div className="pr-numbers container">
 
                 <div className="pr-max-weight container">
-                    <h1 className="pr-max-weight-number">{/* PR Max Weight Number */}</h1>
+                    <h1 className="pr-max-weight-number">{maxWeight}</h1>
                 </div>
 
                 <div className="pr-max-reps container">
-                    <h1 className="pr-max-reps-number">{/* PR Max reps Number */}</h1>
+                    <h1 className="pr-max-reps-number">{repsOfMaxWeight}</h1>
                 </div>
 
             </div>
