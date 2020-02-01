@@ -55,7 +55,7 @@ export default function PersonalRecord({ stats }) {
             </div>
 
             <div className="pr-exercise-body-region container">
-                <p className="pr-exercise-body-region">{/* PR Exercise */} | {/* PR Body Region */}</p>
+                <p className="pr-exercise-body-region">{/* PR Exercise Name */}* PR Exercise Name * | {/* PR Body Region Name */} PR Body Region Name *</p>
             </div>
         </div>
 
