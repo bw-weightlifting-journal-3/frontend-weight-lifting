@@ -1,10 +1,9 @@
-import React from 'react';
-import './App.css';
-import WorkoutView from './Components/WorkoutView';
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <h1>Hello from App</h1>
       <WorkoutView />
     </div>
