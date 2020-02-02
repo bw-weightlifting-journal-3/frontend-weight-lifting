@@ -28,7 +28,7 @@ export default function Counter1() {
       </div>
       <div className="bottom-counter">
         <CounterButton number={subtractNumber2} buttonValue="-" />
-        <input type="text">{count2}</span>
+        <input type="text">{count2}</input>
         <CounterButton number={addNumber2} buttonValue="+" />
       </div>
     </div>
