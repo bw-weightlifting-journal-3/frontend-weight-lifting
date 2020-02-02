@@ -11,11 +11,15 @@ const AddWorkoutView = () => {
   });
 
   const changeHandler = e => {
-    setAddSet({ ...addSet, [e.target.name]: e.target.value });
+    setAddSet({ [e.target.name]: e.target.value });
   };
 
   const SubmitHandler = e => {
     e.preventDefault();
+    setAddSet({
+      weight: '',
+      sets: ''
+    });
   };
 
   return (
@@ -40,8 +44,9 @@ const AddWorkoutView = () => {
           value={addSet.sets}
           onChange={changeHandler}
         />
+        <AddButton type='submit'>Add Set</AddButton>
       </Form>
-      <AddButton type='submit'>Add Set</AddButton>
+
       {/* Link to the next page */}
       <Button>Start Exercise →</Button>
     </Wrapper>
