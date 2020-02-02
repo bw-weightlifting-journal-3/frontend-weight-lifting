@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axioswithAuth from 'axios';
+import axiosWithAuth from "../utils/AxiosWithAuth";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Collapse,
@@ -19,14 +19,14 @@ import {
 const Navigation = (props) => {
 
   useEffect(() => {
-    axioswithAuth()
-    .get('/api/user')
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    axiosWithAuth()
+      .get("api/user")
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err)
+      })
   });
 
   const [isOpen, setIsOpen] = useState(false);

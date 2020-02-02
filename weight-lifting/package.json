@@ -13,16 +13,7 @@
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "reactstrap": "^8.4.1",
-=======
->>>>>>> 0b401f3988860651c917cce3fad88d44de4f96fe
-=======
-
-    "reactstrap": "^8.4.1",
-
->>>>>>> 254b6edd353e56e7ce9860f04f57d5709b1c830b
     "styled-components": "^5.0.0",
     "yup": "^0.28.1"
   },
