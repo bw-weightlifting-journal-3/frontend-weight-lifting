@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-// Have to pull in Personal Record component
-// Have to map over 'Exercises'
+// Have to map over 'Sets'
 
 const AddWorkoutView = () => {
   const [addSet, setAddSet] = useState({
@@ -46,7 +45,7 @@ const AddWorkoutView = () => {
         />
         <AddButton type='submit'>Add Set</AddButton>
       </Form>
-
+    {/* Our sets will go here */}
       {/* Link to the next page */}
       <Button>Start Exercise →</Button>
     </Wrapper>
