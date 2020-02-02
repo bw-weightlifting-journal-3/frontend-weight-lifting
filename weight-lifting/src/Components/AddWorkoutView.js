@@ -14,12 +14,17 @@ const AddWorkoutView = () => {
     setAddSet({ ...addSet, [e.target.name]: e.target.value });
   };
 
+  const SubmitHandler = e => {
+    e.preventDefault();
+  };
+
   return (
     <Wrapper>
       {/* Placeholder for Navbar */}
       <h3>This is our Navbar</h3>
       {/* Input field to add sets */}
-      <form>
+      <Form onSubmit={SubmitHandler}>
+        <h3>Weight</h3>
         <Input
           name='weight'
           type='text'
@@ -27,6 +32,7 @@ const AddWorkoutView = () => {
           value={addSet.weight}
           onChange={changeHandler}
         />
+        <h3>Sets</h3>
         <Input
           name='sets'
           type='text'
@@ -34,8 +40,8 @@ const AddWorkoutView = () => {
           value={addSet.sets}
           onChange={changeHandler}
         />
-      </form>
-      <AddButton>Add Set</AddButton>
+      </Form>
+      <AddButton type='submit'>Add Set</AddButton>
       {/* Link to the next page */}
       <Button>Start Exercise →</Button>
     </Wrapper>
@@ -88,4 +94,19 @@ const Header = styled.h3`
   padding: 1.2rem;
 `;
 
-const Input = styled.input``;
+const Input = styled.input`
+  text-align: center;
+  margin: 1.3rem;
+  background: none;
+  border: none;
+  color: white;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+`;
