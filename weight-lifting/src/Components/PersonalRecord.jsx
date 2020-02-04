@@ -71,49 +71,46 @@ export default function PersonalRecord() {
 
 
 // .pr-component {
-//     max-width: 25%;
-//     color: white;
-//     background-color: black;
-//     margin: auto;
-//   }
+//   max-width: 25%;
+//   color: white;
+//   background-color: black;
+//   margin: auto;
+// }
+
+// .pr-title {
+//   display: flex;
+//   align-items: flex-start;
+// }
+
+// .pr-numbers {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+// }
+
+// .pr-max-weight {
+//   display: flex;
+//   flex-direction: row;
+//   align-content: bottom;
+// }
+
+// .pr-max-reps {
+//   display: flex;
+//   flex-direction: row;
+//   align-content: bottom;
+// }
+
+// .lbs {
+//   padding-right: 20px;
+//   padding-left: 10px;
+//   align-self: flex-end;
+// }
+
+// .reps {
+//   padding-right: 10px;
+//   padding-left: 10px;
+//   align-self: flex-end;
+// }
   
-//   .pr-title {
-//     display: flex;
-//     align-items: flex-start;
-//   }
-  
-//   .pr-numbers {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: center;
-    
-//     border: 1px solid peru;
-  
-//   }
-  
-//   .pr-max-weight {
-//     display: flex;
-//     flex-direction: row;
-//     align-content: bottom;
-//   }
-  
-//   .pr-max-reps {
-//     display: flex;
-//     flex-direction: row;
-//     align-content: bottom;
-//   }
-  
-//   .lbs {
-//     padding-right: 20px;
-//     padding-left: 10px;
-//     align-self: flex-end;
-//   }
-  
-//   .reps {
-//     padding-right: 10px;
-//     padding-left: 10px;
-//     align-self: flex-end;
-//   }
-  
-//   /* border: 1px solid peru; */
+// //   /* border: 1px solid peru; */
   
