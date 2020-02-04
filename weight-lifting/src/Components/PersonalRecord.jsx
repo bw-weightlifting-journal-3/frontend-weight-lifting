@@ -4,7 +4,6 @@ import axios from 'axios';
 // import PersonalRecord from "./Components/PersonalRecord"
 // <PersonalRecord/>
 
-// res./*fill this out later*/
 
 export default function PersonalRecord() {
 
