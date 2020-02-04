@@ -17,8 +17,14 @@ export default function PersonalRecord() {
           .get("https://bw-weightlifting-journal.herokuapp.com/api/user")
           .then(
             res => {
-            //   setMaxWeight(res./*fill this out later*/)
-            //   setRepsOfMaxWeight(res./*fill this out later*/)
+                // setMaxWeight(
+                //     res.data.exercise.weight.filter((weight) => {
+                //         Math.max(weight)
+                //     } ) )
+                // setRepsOfMaxWeight(
+                //     res.data.exercise.weight.filter((weight) => {
+                //         Math.max(weight)
+                //     } ) )
 
               console.log("Succesfully recieved data", res)
             }
