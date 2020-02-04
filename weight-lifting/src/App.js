@@ -12,6 +12,9 @@ import AddWorkoutView from './Components/AddWorkoutView';
 function App() {
   return (
     <div className='App'>
+
+      <h1>Hello from App :D</h1>
+
       <h1>Hello from App</h1>
       <Router>
         <Route exact path='/login' component={Login} />
