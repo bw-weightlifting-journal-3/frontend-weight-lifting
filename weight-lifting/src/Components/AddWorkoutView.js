@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Navigation from './Navigation';
 
 // Have to map over 'Sets'
 
@@ -24,7 +25,7 @@ const AddWorkoutView = () => {
   return (
     <Wrapper>
       {/* Placeholder for Navbar */}
-      <h3>This is our Navbar</h3>
+      <Navigation />
       {/* Input field to add sets */}
       <Form onSubmit={SubmitHandler}>
         <h3>Weight</h3>
