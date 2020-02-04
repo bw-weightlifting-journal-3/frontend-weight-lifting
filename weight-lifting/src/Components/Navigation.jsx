@@ -16,13 +16,19 @@ import {
   NavbarText
 } from 'reactstrap';
 
+const user = {
+  marginRight: "1%",
+}
+
 const Navigation = (props) => {
+  const [name, setName] = useState("");
 
   useEffect(() => {
     axiosWithAuth()
       .get("api/user")
       .then(res => {
         console.log(res);
+        setName(res.data.name);
       })
       .catch(err => {
         console.log(err)
@@ -60,9 +66,12 @@ const Navigation = (props) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Welcome, User!</NavbarText>
+          <NavbarText style={user}>Welcome, {name}!</NavbarText>
         </Collapse>
       </Navbar>
+      <div>
+
+      </div>
     </div>
   );
 }
