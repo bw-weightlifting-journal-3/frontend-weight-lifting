@@ -14,17 +14,39 @@ const UserPage = () => {
         .catch(err => {
             console.log(err);
         })
-    })
+    }, [])
 
     return (
-        <div>
-            <h1>Name: {data.name}</h1>
-            <p>Email: {data.email}</p>
-            <p>Goals: {data.goals}</p>
-            <img src={data.avatar_url}/>
-        </div>
+        <OuterDiv>
+            <InnerDivLeft>
+                <h1>Name: {data.name}</h1>
+                <p>Email: {data.email}</p>
+            </InnerDivLeft>
+            <InnerDivRight>
+                <p>Goals: {data.goals}</p>
+                <img src={data.avatar_url}/> 
+            </InnerDivRight>
+            
+        </OuterDiv>
     )
 };
 
 export default UserPage;
 
+const OuterDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    padding: 15px;
+    background-color: gray;
+`
+const InnerDivLeft = styled.div`
+    margin: 15px;
+    padding: 15px;
+    background-color: lightgray;
+    color: red;
+`
+const InnerDivRight = styled.div`
+    margin: 15px;
+    padding: 15px;
+`

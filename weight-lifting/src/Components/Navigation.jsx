@@ -33,7 +33,7 @@ const Navigation = (props) => {
       .catch(err => {
         console.log(err)
       })
-  });
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
 
