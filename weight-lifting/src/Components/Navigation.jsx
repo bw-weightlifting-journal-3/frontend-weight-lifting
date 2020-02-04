@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axiosWithAuth from "../utils/AxiosWithAuth";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Collapse,
@@ -16,6 +17,18 @@ import {
 } from 'reactstrap';
 
 const Navigation = (props) => {
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get("api/user")
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  });
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);

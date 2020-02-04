@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Navigation from './Navigation';
 
 // Have to pull in Personal Record component
 // Have to map over 'Exercises'
@@ -8,7 +9,7 @@ const WorkoutView = () => {
   return (
     <Wrapper>
       {/* Placeholder for Navbar */}
-      <h3>This is our Navbar</h3>
+      <Navigation />
       {/* Bring in Personal Record Component */}
       <h3>This is our Personal Record Component</h3>
       <Header>Worked out Today</Header>
