@@ -5,15 +5,19 @@ import Login from "./login";
 import WorkoutView from "./Components/WorkoutView";
 // import ExerciseList from "./Components/ExerciseList";
 
+// update
+import HomeView from './Components/HomeView';
+import AddWorkoutView from './Components/AddWorkoutView';
+
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <h1>Hello from App</h1>
       <Router>
-        <Route exact path="/login" component={Login} />
+        <Route exact path='/login' component={Login} />
       </Router>
-      <WorkoutView />
-
+      {/* <HomeView /> */}
+      <AddWorkoutView />
     </div>
   );
 }

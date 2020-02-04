@@ -5,7 +5,7 @@ import Navigation from './Navigation';
 // Have to pull in Personal Record component
 // Have to map over 'Exercises'
 
-const WorkoutView = () => {
+const HomeView = () => {
   return (
     <Wrapper>
       {/* Placeholder for Navbar */}
@@ -19,12 +19,12 @@ const WorkoutView = () => {
       <h1>Placeholder Card</h1>
 
       {/* Link to the next page */}
-      <Button>Start Exercise → </Button>
+      <Button>Start Exercise →</Button>
     </Wrapper>
   );
 };
 
-export default WorkoutView;
+export default HomeView;
 
 // All of our styled components
 const Button = styled.button`
@@ -38,6 +38,9 @@ const Button = styled.button`
   text-align: center;
   padding: 1.2rem;
   font-size: 1.5rem;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const Wrapper = styled.div`
