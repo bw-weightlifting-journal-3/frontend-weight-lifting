@@ -22,23 +22,25 @@ export default function PersonalRecord() {
           .get("api/user")
           .then(
             res => {
-                setMaxWeight(
-                    res.data.exercises.map(
-                        (exercise) => {
-                            return(
-                                exercise.sets.map(
-                                    (set) => {
-                                        return(
-                                            set.find((weight) => {
-                                                return(Math.max(weight))
-                                            })
-                                        )
-                                    }
-                                )
-                            )
-                        }
-                    )
-                )
+                // setMaxWeight(
+                //     res.data.exercises.map(
+                //         (exercise) => {
+                //             return(
+                //                 exercise.sets.map(
+                //                     (set) => {
+                //                         return(
+                //                             set.weight
+                //                             ////////////////For Use Later////////
+                //                             find((weight) => {
+                //                                 return(Math.max(...weight))
+                //                             })
+                //                         )
+                //                     }
+                //                 )
+                //             )
+                //         }
+                //     )
+                // )
 
                 console.log("Is this the max or even a weight?", maxWeight)
 
@@ -56,6 +58,9 @@ export default function PersonalRecord() {
         };
 
         gettingMaxWeight()
+
+        setMaxWeight(250)
+        setRepsOfMaxWeight(8)
     
       }, []);
 
