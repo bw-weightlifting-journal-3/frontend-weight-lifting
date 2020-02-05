@@ -17,7 +17,7 @@ export default function PersonalRecord() {
     
     useEffect(() => {
 
-        const getMaxWeight = () => {
+        const gettingMaxWeight = () => {
           axiosWithAuth()
           .get("api/user")
           .then(
@@ -53,7 +53,7 @@ export default function PersonalRecord() {
           )
         };
 
-        getMaxWeight()
+        gettingMaxWeight()
     
       }, []);
 
