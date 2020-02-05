@@ -41,12 +41,12 @@ const OuterDiv = styled.div`
     background-color: gray;
 `
 const InnerDivLeft = styled.div`
-    margin: 15px;
+    margin: 15px 250px 15px 15px;
     padding: 15px;
     background-color: lightgray;
     color: red;
 `
 const InnerDivRight = styled.div`
-    margin: 15px;
+    margin: 15px 15pxs 15px 250px;
     padding: 15px;
 `
