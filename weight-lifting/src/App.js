@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Login from "./login";
 // import ExerciseList from "./Components/ExerciseList";
-import PersonalRecord from "./Components/PersonalRecord"
-
 
 // update
 import HomeView from './Components/HomeView';
@@ -17,8 +15,6 @@ function App() {
       <h1>Hello from App :D</h1>
 
       <h1>Hello from App</h1>
-      <PersonalRecord/>
-
       <Router>
         <Route exact path='/login' component={Login} />
       </Router>
