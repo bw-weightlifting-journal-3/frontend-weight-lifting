@@ -1,25 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import ExerciseCard from "./ExerciseCard";
 import axiosWithAuth from "../utils/AxiosWithAuth";
+import ExerciseCard from "./ExerciseCard";
 
 const ExerciseList = props => {
+  const [exercises, setExercises] = useState();
+  const [setLength, setSetLength] = useState();
   useEffect(() => {
     axiosWithAuth()
-      .get("api/exercises")
+      .get("api/user")
       .then(res => {
-        console.log("exercises", res);
+        console.log("Please work", res.data.exercises.sets);
+        setExercises(res.data.exercises);
+        // setSets(res.data.exercise.sets);
       })
       .catch(err => {
         console.log(err);
       });
   }, []);
+
   return (
     <div>
-      {/* {props.data
-        ? props.data.map(cv => {
+      {exercises
+        ? exercises.map(cv => {
             return <ExerciseCard data={cv} key={cv.id} />;
           })
-        : "You have done nothing"} */}
+        : "You have done nothing"}
     </div>
   );
 };
