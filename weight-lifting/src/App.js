@@ -1,30 +1,29 @@
-import React, { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./App.css";
-import Login from "./login";
-import { UserContext } from "./Context/UserContext";
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import './App.css';
+import Login from './login';
+import { UserContext } from './Context/UserContext';
 // import ExerciseList from "./Components/ExerciseList";
-
 // update
-import HomeView from "./Components/HomeView";
-import AddWorkoutView from "./Components/AddWorkoutView";
-
+import HomeView from './Components/HomeView';
+import DetailsView from './Components/DetailsView';
+import AddWorkoutView from './Components/AddWorkoutView';
 function App() {
   const value = useContext(UserContext);
-  console.log("This be da value", value);
 
+  console.log('This be da userName', value);
   return (
-    <div className="App">
+    <div className='App'>
       <UserContext.Provider value={value}>
         <h1>Hello from App :D</h1>
         <Router>
-          <Route exact path="/login" component={Login} />
+          <Route exact path='/login' component={Login} />
         </Router>
         {/* <HomeView /> */}
-        <AddWorkoutView />
+        {/* <AddWorkoutView /> */}
+        <DetailsView />
       </UserContext.Provider>
     </div>
   );
 }
-
 export default App;
