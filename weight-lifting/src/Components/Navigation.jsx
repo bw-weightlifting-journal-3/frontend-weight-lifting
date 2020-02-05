@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/AxiosWithAuth';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Collapse,
   Navbar,
