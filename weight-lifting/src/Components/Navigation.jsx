@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/AxiosWithAuth';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Collapse,
   Navbar,
@@ -23,8 +23,6 @@ const user = {
 const Navigation = (props) => {
   const [name, setName] = useState("");
 
-const Navigation = props => {
-
   useEffect(() => {
     axiosWithAuth()
       .get('api/user')
@@ -37,10 +35,6 @@ const Navigation = props => {
         console.log(err)
       })
   }, []);
-
-        console.log(err);
-      });
-  });
 
   const [isOpen, setIsOpen] = useState(false);
 
