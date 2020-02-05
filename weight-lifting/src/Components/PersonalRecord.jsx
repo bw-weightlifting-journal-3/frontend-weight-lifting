@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import axiosWithAuth from '../utils/AxiosWithAuth';
 
 // import PersonalRecord from "./Components/PersonalRecord"
@@ -54,9 +53,6 @@ export default function PersonalRecord() {
           )
         };
 
-        setRepsOfMaxWeight()
-
-        getMaxWeight();
     
       }, []);
 
