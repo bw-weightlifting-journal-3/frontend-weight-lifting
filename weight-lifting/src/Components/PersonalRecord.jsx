@@ -29,7 +29,9 @@ export default function PersonalRecord() {
                                 exercise.sets.map(
                                     (set) => {
                                         return(
-                                            set.weight
+                                            set.find((weight) => {
+                                                return(Math.max(weight))
+                                            })
                                         )
                                     }
                                 )
