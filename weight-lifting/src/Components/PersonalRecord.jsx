@@ -10,8 +10,8 @@ export default function PersonalRecord() {
     const [maxWeight, setMaxWeight] = useState([]);
     const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
 
-    // const [exerciseNameOfMax, setExerciseNameOfMax] = useState([]);
-    // const [bodyRegionOfMax, setBodyRegionOfMax] = useState([]);
+    const [exerciseNameOfMax, setExerciseNameOfMax] = useState([]);
+    const [bodyRegionOfMax, setBodyRegionOfMax] = useState([]);
 
     
     
@@ -29,7 +29,9 @@ export default function PersonalRecord() {
                                 exercise.sets.map(
                                     (set) => {
                                         return(
-                                            set.weight
+                                            set.find((weight) => {
+                                                return(Math.max(weight))
+                                            })
                                         )
                                     }
                                 )
@@ -78,7 +80,7 @@ export default function PersonalRecord() {
             </div>
 
             <div className="pr-exercise-body-region container">
-                <p className="pr-exercise-body-region">* PR Exercise Name *   |    *PR Body Region Name *</p>
+<p className="pr-exercise-body-region">{exerciseNameOfMax}* PR Exercise Name *   |    {bodyRegionOfMax}*PR Body Region Name *</p>
             </div>
         </div>
 
