@@ -17,11 +17,11 @@ import {
 } from 'reactstrap';
 
 const user = {
-  marginRight: "1%",
-}
+  marginRight: '1%'
+};
 
-const Navigation = (props) => {
-  const [name, setName] = useState("");
+const Navigation = props => {
+  const [name, setName] = useState('');
 
   useEffect(() => {
     axiosWithAuth()
@@ -31,9 +31,8 @@ const Navigation = (props) => {
         setName(res.data.name);
       })
       .catch(err => {
-
-        console.log(err)
-      })
+        console.log(err);
+      });
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -64,9 +63,7 @@ const Navigation = (props) => {
           <NavbarText style={user}>Welcome, {name}!</NavbarText>
         </Collapse>
       </Navbar>
-      <div>
-
-      </div>
+      <div></div>
     </div>
   );
 };

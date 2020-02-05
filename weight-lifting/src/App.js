@@ -6,6 +6,7 @@ import { UserContext } from './Context/UserContext';
 // import ExerciseList from "./Components/ExerciseList";
 // update
 import HomeView from './Components/HomeView';
+import DetailsView from './Components/DetailsView';
 import AddWorkoutView from './Components/AddWorkoutView';
 function App() {
   const value = useContext(UserContext);
@@ -19,7 +20,8 @@ function App() {
           <Route exact path='/login' component={Login} />
         </Router>
         {/* <HomeView /> */}
-        <AddWorkoutView />
+        {/* <AddWorkoutView /> */}
+        <DetailsView />
       </UserContext.Provider>
     </div>
   );
