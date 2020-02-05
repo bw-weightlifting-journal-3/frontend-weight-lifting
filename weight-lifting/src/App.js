@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Login from "./login";
 import { UserContext } from "./Context/UserContext";
+import Navigation from "./Components/Navigation";
 // import ExerciseList from "./Components/ExerciseList";
 
 // update
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <UserContext.Provider value={value}>
+      <Navigation />
         <h1>Hello from App :D</h1>
         <Router>
           <Route exact path="/login" component={Login} />

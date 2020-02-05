@@ -26,7 +26,6 @@ const UserPage = () => {
                 <p>Goals: {data.goals}</p>
                 <img src={data.avatar_url}/> 
             </InnerDivRight>
-            
         </OuterDiv>
     )
 };
@@ -34,19 +33,12 @@ const UserPage = () => {
 export default UserPage;
 
 const OuterDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    margin: 15px;
-    padding: 15px;
-    background-color: gray;
 `
 const InnerDivLeft = styled.div`
-    margin: 15px 250px 15px 15px;
-    padding: 15px;
-    background-color: lightgray;
-    color: red;
+    background-color: black;
+    color: white;
 `
 const InnerDivRight = styled.div`
-    margin: 15px 15pxs 15px 250px;
-    padding: 15px;
+    background-color: gray;
+    color: white;
 `

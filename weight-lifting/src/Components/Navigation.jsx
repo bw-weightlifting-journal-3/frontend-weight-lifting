@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/AxiosWithAuth';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Logo from '../assets/nextset.png';
 import {
   Collapse,
   Navbar,
@@ -15,10 +16,6 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
-
-const user = {
-  marginRight: "1%",
-}
 
 const Navigation = (props) => {
   const [name, setName] = useState("");
@@ -43,13 +40,13 @@ const Navigation = (props) => {
   return (
     <div>
       <Navbar color='light' light expand='md'>
-        {/* <NavbarBrand href="/">≡</NavbarBrand> */}
+        <NavbarBrand href="#"><img style={img} src={Logo}/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
             {/* <NavItem> 
               <NavLink href="/components/">Components</NavLink>
-            </NavItem>
+            </NavItem> 
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
             </NavItem> */}
@@ -58,6 +55,7 @@ const Navigation = (props) => {
               <DropdownMenu left>
                 <DropdownItem>Create an Exercise</DropdownItem>
                 <DropdownItem>View Exercises</DropdownItem>
+                <DropdownItem>View User Info</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
@@ -72,3 +70,12 @@ const Navigation = (props) => {
 };
 
 export default Navigation;
+
+// inline styling
+const user = {
+  marginRight: "1%",
+}
+ const img = {
+   width: "200px",
+   height: "110px",
+ }
