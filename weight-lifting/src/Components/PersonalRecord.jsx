@@ -27,10 +27,10 @@ export default function PersonalRecord() {
                     res.data.exercises.map(
                         (exercise) => {
                             return(
-                                exercise.sets.find(
+                                exercise.sets.map(
                                     (set) => {
                                         return(
-                                            Math.max(set)
+                                            set.weight
                                         )
                                     }
                                 )
@@ -38,6 +38,8 @@ export default function PersonalRecord() {
                         }
                     )
                 )
+
+                console.log("Is this the max or even a weight?", maxWeight)
 
                 console.log("Succesfully recieved data", res)
                 console.log("sets arrays", res.data.exercises.map((exercise) => {
@@ -52,7 +54,6 @@ export default function PersonalRecord() {
           )
         };
 
-        console.log("Is this the max?", maxWeight)
         setRepsOfMaxWeight()
 
         getMaxWeight();
