@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Navigation from "./Navigation";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "../App.css";
 
 // Have to pull in Personal Record component
 // Have to map over 'Exercises'
@@ -21,28 +22,29 @@ const HomeView = () => {
     weight: ""
   });
   return (
-    <Wrapper>
-      {/* Placeholder for Navbar */}
-      <Navigation />
-      {/* Bring in Personal Record Component */}
-      <h3>This is our Personal Record Component</h3>
-      <Header>Worked out Today</Header>
-      {/* Map over workouts created */}
+    <div className="master_container">
+      <Wrapper>
+        {/* Placeholder for Navbar */}
+        <Navigation />
+        {/* Bring in Personal Record Component */}
 
-      <InputFieldContext.Provider
-        value={{ inputField, setinputField, changeHandler }}
-      >
-        <Router>
-          <Route exact path="/" component={ExerciseList} />
-          <Route exact path="/exercies/:id" component={SetList} />
-        </Router>
-      </InputFieldContext.Provider>
+        {/* Map over workouts created */}
 
-      {/* Link to the next page */}
-      <Button>
-        Start Exercise <img src={Arrow} alt="arrow icon" />{" "}
-      </Button>
-    </Wrapper>
+        <InputFieldContext.Provider
+          value={{ inputField, setinputField, changeHandler }}
+        >
+          <Router>
+            <Route exact path="/" component={ExerciseList} />
+            <Route exact path="/exercies/:id" component={SetList} />
+          </Router>
+        </InputFieldContext.Provider>
+
+        {/* Link to the next page */}
+        <Button>
+          Start Exercise <img src={Arrow} alt="arrow icon" />{" "}
+        </Button>
+      </Wrapper>
+    </div>
   );
 };
 
@@ -70,10 +72,4 @@ const Wrapper = styled.div`
   width: 100vw;
   margin: 0 auto;
   color: white;
-`;
-
-const Header = styled.h3`
-  color: white;
-  text-align: left;
-  padding: 1.2rem;
 `;

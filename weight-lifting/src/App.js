@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Login from "./login";
-import InputFieldContext from "./Context/UserContext";
 
-// update
 import HomeView from "./Components/HomeView";
 import AddWorkoutView from "./Components/AddWorkoutView";
 
@@ -14,11 +12,12 @@ function App() {
   //global State
 
   return (
-    <div className="master_container">
+    <div>
       <Router>
         <Route exact path="/login" component={Login} />
+        <Route exact path="/addworkout" component={AddWorkoutView} />
+        <Route exact path="/" component={HomeView} />
       </Router>
-      <HomeView />
       {/* <AddWorkoutView /> */}
       {/*<DetailsView /> */}
     </div>

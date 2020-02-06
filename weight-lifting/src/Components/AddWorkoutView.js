@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import Navigation from './Navigation';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Navigation from "./Navigation";
 
 // Have to map over 'Sets'
 
 const AddWorkoutView = () => {
   const [addSet, setAddSet] = useState({
-    weight: '',
-    sets: ''
+    weight: "",
+    sets: ""
   });
 
   const changeHandler = e => {
@@ -17,8 +17,8 @@ const AddWorkoutView = () => {
   const SubmitHandler = e => {
     e.preventDefault();
     setAddSet({
-      weight: '',
-      sets: ''
+      weight: "",
+      sets: ""
     });
   };
 
@@ -30,23 +30,23 @@ const AddWorkoutView = () => {
       <Form onSubmit={SubmitHandler}>
         <h3>Weight</h3>
         <Input
-          name='weight'
-          type='text'
-          placeholder='input weight'
+          name="weight"
+          type="text"
+          placeholder="input weight"
           value={addSet.weight}
           onChange={changeHandler}
         />
         <h3>Sets</h3>
         <Input
-          name='sets'
-          type='text'
-          placeholder='add sets'
+          name="sets"
+          type="text"
+          placeholder="add sets"
           value={addSet.sets}
           onChange={changeHandler}
         />
-        <AddButton type='submit'>Add Set</AddButton>
+        <AddButton type="submit">Add Set</AddButton>
       </Form>
-    {/* Our sets will go here */}
+      {/* Our sets will go here */}
       {/* Link to the next page */}
       <Button>Start Exercise →</Button>
     </Wrapper>
@@ -57,16 +57,18 @@ export default AddWorkoutView;
 
 // All of our styled components
 const AddButton = styled.button`
-  background-color: darkgrey;
-  color: gold;
-  border: 2px solid gold;
-  padding: 1.3rem;
+  position: fixed;
+  opacity: 0.8;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: #ffc000;
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 22px;
   font-weight: bold;
-  font-size: 1.3rem;
-  &:hover {
-    background-color: gold;
-    color: darkgrey;
-  }
+  border: none;
 `;
 
 const Button = styled.button`

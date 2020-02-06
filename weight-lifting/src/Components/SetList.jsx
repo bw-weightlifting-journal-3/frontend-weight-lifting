@@ -54,7 +54,7 @@ const SetList = props => {
   return (
     <div>
       <h1>{props.location.state.name}</h1>
-      <form onClick={submitHandler}>
+      <form onSubmit={submitHandler}>
         <div>
           <input
             name="reps"
