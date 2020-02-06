@@ -7,7 +7,6 @@ import Navigation from './Navigation';
 const DetailsView = () => {
   return (
     <Wrapper>
-      <Navigation />
       <h1>Placeholder: Name of Set</h1>
       <h3>Placeholder: Set card</h3>
       <h3>Placeholder: Set card</h3>

@@ -45,16 +45,16 @@ const Navigation = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
             <NavItem> 
-              <Link to="/">Home</Link>
+              <Link style={li} to="/">Home</Link>
             </NavItem> 
             <NavItem>
-              <Link to="/addworkout">Add Workout</Link>
+              <Link style={li} to="/addworkout">Add Workout</Link>
             </NavItem>
             <NavItem>
-              <Link to="/detailsview">Workout Details</Link>
+              <Link style={li} to="/detailsview">Workout Details</Link>
             </NavItem>
             <NavItem>
-              <Link to="/login">Login</Link>
+              <Link style={li} to="/login">Login</Link>
             </NavItem>
             {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle>≡</DropdownToggle>
@@ -82,4 +82,11 @@ const user = {
  const img = {
    width: "200px",
    height: "110px",
+ }
+
+ const li = {
+   textDecoration: "none",
+   margin: "5px",
+   padding: "5px",
+   color: "black",
  }
