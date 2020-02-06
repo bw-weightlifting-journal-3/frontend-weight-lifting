@@ -39,6 +39,9 @@ const SignUp = props => {
 
   return (
     <Wrapper>
+      <Header style={{ color: 'red' }}>
+        What are you waiting for...? Start getting PUMPED!
+      </Header>
       <StyledForm onSubmit={SubmitHandler}>
         <StyledInput
           name='name'
@@ -69,15 +72,21 @@ const SignUp = props => {
   );
 };
 
-<<<<<<< HEAD
 export default SignUp;
-=======
-export default Login;
->>>>>>> 5f392025fdabe0e9c028ef4213905d02825e5b72
+
+const Header = styled.h3`
+  background-color: black;
+  color: 'red';
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 10px;
+`;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 50%;
+  margin: auto;
 `;
 
 const StyledForm = styled.form`
@@ -103,6 +112,8 @@ const StyledButton = styled.button`
   font-weight: bold;
   letter-spacing: 0.1em;
   border: none;
+  margin-top: 0.5em;
+  width: 80%;
   &:hover {
     background: white;
     color: black;
