@@ -26,7 +26,7 @@ export default function PersonalRecord() {
           .get("api/user")
           .then(
             (res) => {
-                setMaxWeight(
+                setWeightsLifted(
                     res.data.exercises.map(
                         (exercise) => {
                             return(
@@ -46,7 +46,11 @@ export default function PersonalRecord() {
                     )
                 )
 
-                console.log("Is this the max or even a weight?", maxWeight)
+                setMaxWeight(
+                    Math.max(weightsLifted)
+                )
+
+                console.log("Are these the weights lifted?", weightsLifted);
 
                 console.log("Succesfully recieved data", res)
                 console.log("sets arrays", res.data.exercises.map((exercise) => {
