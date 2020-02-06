@@ -22,7 +22,6 @@ export default function PersonalRecord() {
           //     res.data.exercise.weight.filter((weight) => {
           //         Math.max(weight)
           //     } ) )
-
           console.log('Succesfully recieved data', res);
         })
         .catch(error => {
