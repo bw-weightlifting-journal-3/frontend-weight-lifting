@@ -24,27 +24,37 @@ const AddWorkoutView = () => {
 
   return (
     <Wrapper>
-      {/* Placeholder for Navbar */}
-      <Navigation />
       {/* Input field to add sets */}
       <Form onSubmit={SubmitHandler}>
-        <h3>Weight</h3>
-        <Input
-          name="weight"
-          type="text"
-          placeholder="input weight"
-          value={addSet.weight}
-          onChange={changeHandler}
-        />
-        <h3>Sets</h3>
-        <Input
-          name="sets"
-          type="text"
-          placeholder="add sets"
-          value={addSet.sets}
-          onChange={changeHandler}
-        />
-        <AddButton type="submit">Add Set</AddButton>
+
+  
+
+        <OuterDiv>
+          <DivLeft>
+            <h3>Weight</h3>
+            <Input
+              name='weight'
+              type='text'
+              placeholder='input weight'
+              value={addSet.weight}
+              onChange={changeHandler}
+            />
+          </DivLeft>
+          <DivRight>
+            <h3>Sets</h3>
+            <Input
+              name='sets'
+              type='text'
+              placeholder='add sets'
+              value={addSet.sets}
+              onChange={changeHandler}
+            />
+          </DivRight>
+        </OuterDiv>
+        
+        
+        <AddButton type='submit'>Add Set</AddButton>
+
       </Form>
       {/* Our sets will go here */}
       {/* Link to the next page */}
@@ -104,9 +114,9 @@ const Header = styled.h3`
 const Input = styled.input`
   text-align: center;
   margin: 1.3rem;
-  background: none;
+  background: white;
   border: none;
-  color: white;
+  color: black;
 `;
 
 const Form = styled.form`
@@ -115,5 +125,32 @@ const Form = styled.form`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: black;
+  // background-color: black;
 `;
+
+const OuterDiv = styled.div`
+  
+`
+
+const DivLeft = styled.div`
+  @media (min-width: 500px) {
+    background-color: black;
+    width: 500px;
+  }
+
+  @media (min-width: 750px) {
+    width: 100%;
+  }
+  
+`
+
+const DivRight = styled.div`
+  @media (min-width: 500px) {
+    background-color: black;
+    width: 500px;
+  }
+
+  @media (min-width: 750px) {
+    width: 100%;
+  }
+`

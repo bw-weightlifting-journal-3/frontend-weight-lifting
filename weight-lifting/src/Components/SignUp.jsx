@@ -2,47 +2,59 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const Login = () => {
-  const [userInfo, setUserInfo] = useState({
+const SignUp = props => {
+  const [credentials, setCredentials] = useState({
     name: '',
     email: '',
     password: ''
   });
 
   const changeHandler = e => {
-    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
+  // post request to add user to the server
   const SubmitHandler = e => {
     e.preventDefault();
     axios
       .post(
         'https://bw-weightlifting-journal.herokuapp.com/api/register',
-        userInfo
+        credentials
       )
       .then(res => {
-        console.log(res);
+        localStorage.setItem('token', res.data.token);
+
+        console.log('our signup', res);
+        console.log('This be da token', res.data.token);
       })
       .catch(err => {
         console.log('err', err);
       });
+    setCredentials({
+      name: '',
+      email: '',
+      password: ''
+    });
   };
 
   return (
     <Wrapper>
+      <Header style={{ color: 'red' }}>
+        What are you waiting for...? Start getting PUMPED!
+      </Header>
       <StyledForm onSubmit={SubmitHandler}>
         <StyledInput
           name='name'
           type='text'
           placeholder='Your Name'
-          value={userInfo.name}
+          value={credentials.name}
           onChange={changeHandler}
         />
         <StyledInput
           name='email'
           type='text'
           placeholder='Your E-mail'
-          value={userInfo.email}
+          value={credentials.email}
           onChange={changeHandler}
         />
         <br />
@@ -50,7 +62,7 @@ const Login = () => {
           name='password'
           type='password'
           placeholder='Your Password'
-          value={userInfo.password}
+          value={credentials.password}
           onChange={changeHandler}
         />
         <br />
@@ -60,11 +72,21 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
+
+const Header = styled.h3`
+  background-color: black;
+  color: 'red';
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 10px;
+`;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 45%;
+  margin: auto;
 `;
 
 const StyledForm = styled.form`
@@ -90,6 +112,8 @@ const StyledButton = styled.button`
   font-weight: bold;
   letter-spacing: 0.1em;
   border: none;
+  margin-top: 0.5em;
+  width: 80%;
   &:hover {
     background: white;
     color: black;

@@ -1,8 +1,15 @@
+
 import React, { useState } from "react";
-import styled from "styled-components";
-import Navigation from "./Navigation";
+
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "../App.css";
+
+
+import styled from 'styled-components';
+import Navigation from './Navigation';
+import PersonalRecord from './PersonalRecord';
+
 
 // Have to pull in Personal Record component
 // Have to map over 'Exercises'
@@ -22,6 +29,7 @@ const HomeView = () => {
     weight: ""
   });
   return (
+
     <div className="master_container">
       <Wrapper>
         {/* Placeholder for Navbar */}
@@ -45,6 +53,8 @@ const HomeView = () => {
         </Button>
       </Wrapper>
     </div>
+
+   
   );
 };
 
