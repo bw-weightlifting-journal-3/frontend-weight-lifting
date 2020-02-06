@@ -1,25 +1,60 @@
-import React from 'react';
+
+import React, { useState } from "react";
+
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "../App.css";
+
+
 import styled from 'styled-components';
 import Navigation from './Navigation';
 import PersonalRecord from './PersonalRecord';
 
+
 // Have to pull in Personal Record component
 // Have to map over 'Exercises'
 
-const HomeView = () => {
-  return (
-    <Wrapper>
-      {/* Bring in Personal Record Component */}
-      <PersonalRecord />
-      <Header>Worked out Today</Header>
-      {/* Map over workouts created */}
-      <h1>Placeholder Card</h1>
-      <h1>Placeholder Card</h1>
-      <h1>Placeholder Card</h1>
+import ExerciseList from "./ExerciseList";
+import SetList from "./SetList";
+import InputFieldContext from "../Context/UserContext";
+import Arrow from "../assets/arrow.svg";
 
-      {/* Link to the next page */}
-      <Button>Start Exercise →</Button>
-    </Wrapper>
+const HomeView = () => {
+  const changeHandler = e => {
+    setinputField({ ...inputField, [e.target.name]: e.target.value });
+  };
+
+  const [inputField, setinputField] = useState({
+    reps: "",
+    weight: ""
+  });
+  return (
+
+    <div className="master_container">
+      <Wrapper>
+        {/* Placeholder for Navbar */}
+        <Navigation />
+        {/* Bring in Personal Record Component */}
+
+        {/* Map over workouts created */}
+
+        <InputFieldContext.Provider
+          value={{ inputField, setinputField, changeHandler }}
+        >
+          <Router>
+            <Route exact path="/" component={ExerciseList} />
+            <Route exact path="/exercies/:id" component={SetList} />
+          </Router>
+        </InputFieldContext.Provider>
+
+        {/* Link to the next page */}
+        <Button>
+          Start Exercise <img src={Arrow} alt="arrow icon" />{" "}
+        </Button>
+      </Wrapper>
+    </div>
+
+   
   );
 };
 
@@ -33,25 +68,18 @@ const Button = styled.button`
   bottom: 0;
   width: 100%;
   background-color: black;
-  color: yellow;
+  color: #ffc000;
   text-align: center;
   padding: 1.2rem;
-  font-size: 1.5rem;
-  &:hover {
-    opacity: 1;
-  }
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
 `;
 
 const Wrapper = styled.div`
-  background: darkgrey;
+  background: #333;
   height: 100vh;
   width: 100vw;
   margin: 0 auto;
   color: white;
-`;
-
-const Header = styled.h3`
-  color: white;
-  text-align: left;
-  padding: 1.2rem;
 `;

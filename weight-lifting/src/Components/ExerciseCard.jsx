@@ -24,12 +24,15 @@ const ExerciseCard = props => {
         }
       }}
     >
-      <div>
-        <h2>{props.data.name}</h2>
-        <p>Sets: {props.sets.length}</p>
-        <p>Region: {region}</p>
+      <div className="ex_card_container">
+        <div className="ex_titleInfo">
+          <h2>{props.data.name}</h2>
+          <p>
+            Sets: {props.sets.length} | {region}
+          </p>
+        </div>
+        <img src={Arrow} alt="arrow icon" />
       </div>
-      <img src={Arrow} alt="arrow icon" />
     </Link>
   );
 };
