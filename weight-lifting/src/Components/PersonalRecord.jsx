@@ -7,40 +7,44 @@ import axiosWithAuth from '../utils/AxiosWithAuth';
 
 export default function PersonalRecord() {
 
+    const [weightsLifted, setWeightsLifted] = useState ([]);
     const [maxWeight, setMaxWeight] = useState([]);
     const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
 
     const [exerciseNameOfMax, setExerciseNameOfMax] = useState([]);
     const [bodyRegionOfMax, setBodyRegionOfMax] = useState([]);
 
+    // const [objectContainingMax, setObjectContainingMax] = useState([]);
+
     
     
     useEffect(() => {
+
 
         const gettingMaxWeight = () => {
           axiosWithAuth()
           .get("api/user")
           .then(
-            res => {
-                // setMaxWeight(
-                //     res.data.exercises.map(
-                //         (exercise) => {
-                //             return(
-                //                 exercise.sets.map(
-                //                     (set) => {
-                //                         return(
-                //                             set.weight
+            (res) => {
+                setMaxWeight(
+                    res.data.exercises.map(
+                        (exercise) => {
+                            return(
+                                exercise.sets.map(
+                                    (set) => {
+                                        return(
+                                            set.weight
                 //                             ////////////////For Use Later////////
                 //                             find((weight) => {
                 //                                 return(Math.max(...weight))
-                //                             })
-                //                         )
-                //                     }
-                //                 )
-                //             )
-                //         }
-                //     )
-                // )
+                                            // })
+                                        )
+                                    }
+                                )
+                            )
+                        }
+                    )
+                )
 
                 console.log("Is this the max or even a weight?", maxWeight)
 
@@ -59,8 +63,10 @@ export default function PersonalRecord() {
 
         gettingMaxWeight()
 
-        setMaxWeight(250)
-        setRepsOfMaxWeight(8)
+        // setMaxWeight(250)
+        // setRepsOfMaxWeight(8)
+
+        console.log("This is the maxWeight State", maxWeight);
     
       }, []);
 
