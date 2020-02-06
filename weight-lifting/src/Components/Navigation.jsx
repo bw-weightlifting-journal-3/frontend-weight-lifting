@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/AxiosWithAuth';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Collapse,
   Navbar,
@@ -16,17 +16,24 @@ import {
   NavbarText
 } from 'reactstrap';
 
+const user = {
+  marginRight: '1%'
+};
+
 const Navigation = props => {
+  const [name, setName] = useState('');
+
   useEffect(() => {
     axiosWithAuth()
       .get('api/user')
       .then(res => {
         console.log(res);
+        setName(res.data.name);
       })
       .catch(err => {
         console.log(err);
       });
-  });
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -53,9 +60,10 @@ const Navigation = props => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Welcome, User!</NavbarText>
+          <NavbarText style={user}>Welcome, {name}!</NavbarText>
         </Collapse>
       </Navbar>
+      <div></div>
     </div>
   );
 };
