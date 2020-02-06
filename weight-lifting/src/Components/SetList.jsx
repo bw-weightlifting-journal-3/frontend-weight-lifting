@@ -21,11 +21,14 @@ const SetList = props => {
   return (
     <div>
       <h2>{props.location.state.name}</h2>
+
       {setInfo
         ? setInfo.map(cv => {
             return <SetCard data={cv} key={cv.id} />;
           })
         : "You have done nothing"}
+
+      <button onClick="">I delete Everyting You See</button>
     </div>
   );
 };

@@ -6,6 +6,9 @@ import axiosWithAuth from '../utils/AxiosWithAuth';
 
 export default function PersonalRecord() {
 
+
+    const [weightsLifted, setWeightsLifted] = useState ([]);
+
   const [maxWeight, setMaxWeight] = useState([]);
   const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
 
@@ -50,42 +53,65 @@ export default function PersonalRecord() {
           <p className='units-of-measure lbs'>LBS</p>
 
 
+
     const [maxWeight, setMaxWeight] = useState([]);
     const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
 
     const [exerciseNameOfMax, setExerciseNameOfMax] = useState([]);
     const [bodyRegionOfMax, setBodyRegionOfMax] = useState([]);
 
-    
-    
+    // const [objectContainingMax, setObjectContainingMax] = useState([]);
+
+    const [objectSetToArr, setObjectSetToArr] = useState([]);
+    const thisBeOurSets = [];
+    const thisBeOurWeights = [];
+
     useEffect(() => {
+
 
         const gettingMaxWeight = () => {
           axiosWithAuth()
           .get("api/user")
           .then(
-            res => {
-                // setMaxWeight(
-                //     res.data.exercises.map(
-                //         (exercise) => {
-                //             return(
-                //                 exercise.sets.map(
-                //                     (set) => {
-                //                         return(
-                //                             set.weight
-                //                             ////////////////For Use Later////////
-                //                             find((weight) => {
-                //                                 return(Math.max(...weight))
-                //                             })
-                //                         )
-                //                     }
-                //                 )
-                //             )
-                //         }
-                //     )
+            (res) => {
+                console.log(res)
+                    const setData = res.data.exercises.map(
+                        (exercise) => {
+                            exercise.sets.map(
+                                (set) => {
+                                    console.log("This is a set", set);
+                                    return thisBeOurSets.push(set)
+                                }
+                            )
+                        }
+                    )
+
+
+
+                thisBeOurSets.map((set) => {
+                    thisBeOurWeights.push(set.weight)
+                })
+
+                const weightNumberMax = Math.max(...thisBeOurWeights)
+
+                // const weightStringToNum = parseInt(weightNumberMax)
+
+                setMaxWeight(weightNumberMax)
+
+                // console.log("Weight string to Num", weightStringToNum)
+
+                console.log("weightNumberMax", typeof weightNumberMax)
+
+                // setMaxWeight()
+                // setObjectSetToArr(
+                //     Object.values(maxWeight)
                 // )
 
-                console.log("Is this the max or even a weight?", maxWeight)
+                // setMaxWeight(
+                //     Math.max(...weightsLifted)
+                // )
+
+                console.log("Are these the weights lifted?", maxWeight);
 
                 console.log("Succesfully recieved data", res)
                 console.log("sets arrays", res.data.exercises.map((exercise) => {
@@ -102,8 +128,14 @@ export default function PersonalRecord() {
 
         gettingMaxWeight()
 
-        setMaxWeight(250)
-        setRepsOfMaxWeight(8)
+        console.log("This is thisBeOurSets", thisBeOurSets)
+        console.log("This is thisBeOurWeights", thisBeOurWeights)
+
+
+        // setMaxWeight(250)
+        // setRepsOfMaxWeight(8)
+
+        console.log("This is the maxWeight State", maxWeight);
     
       }, []);
 
