@@ -8,8 +8,6 @@ import Navigation from './Navigation';
 const HomeView = () => {
   return (
     <Wrapper>
-      {/* Placeholder for Navbar */}
-      <Navigation />
       {/* Bring in Personal Record Component */}
       <h3>This is our Personal Record Component</h3>
       <Header>Worked out Today</Header>
