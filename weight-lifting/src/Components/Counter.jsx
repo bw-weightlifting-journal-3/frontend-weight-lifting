@@ -6,14 +6,14 @@ export default function Counter1() {
   const [count2, setCount2] = useState(100);
 
   const addNumber1 = () => {
-    setCount1(count1 => count1 + 1);
+    setCount1(count1 => parseInt(count1) + 1);
   };
   const subtractNumber1 = () => {
     setCount1(count1 => count1 - 1);
   };
 
   const addNumber2 = () => {
-    setCount2(count2 => count2 + 1);
+    setCount2(count2 => parseInt(count2) + 1);
   };
   const subtractNumber2 = () => {
     setCount2(count2 => count2 - 1);

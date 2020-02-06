@@ -1,18 +1,14 @@
 import React, { createContext } from 'react';
 
 const initialState = {
-  // userName of user
   userName: '',
-  // user's id
   id: 1,
-  // user's email
   email: '',
   isLoggedIn: false,
-  // list of exercises / then broken into sets
   exercises: [
     {
       id: '',
-      nameWorkout: '',
+      name: '',
       sets: [
         {
           id: 1,
