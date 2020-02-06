@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axiosWithAuth from "../utils/AxiosWithAuth";
 import { withRouter } from "react-router-dom";
+import delete_red from "../assets/delete_red.svg";
 
 const SetCard = props => {
-  const [inputField, setinputField] = useState({
-    reps: props.data.reps,
-    weight: props.data.weight
-  });
+  //global State
   const [editing, setEditing] = useState(false);
-
   const toggler = () => {
     setEditing(!editing);
-  };
-
-  const changeHandler = e => {
-    setinputField({ ...inputField, [e.target.name]: e.target.value });
   };
   const submitHandler = e => {
     e.preventDefault();
     axiosWithAuth()
       .put(
         `/api/exercises/${props.match.params.id}/sets/${props.data.id}`,
-        inputField
+        props.global.inputField
       )
       .then(res => {
         console.log(res);
@@ -43,31 +36,38 @@ const SetCard = props => {
       });
   };
 
-  ///api/exercises/:id/sets/:set_id
+  //api/exercises/:id/sets/:set_id
 
   return (
     <div>
       <h2>
         {props.data.reps} reps for {props.data.weight}lbs
       </h2>
-      <button onClick={toggler}>{editing ? "Cancel" : "Edit"}</button>
-      <button onClick={deleteHandler}>X</button>
-      <form onSubmit={submitHandler} className={editing ? "show" : "hidden"}>
+
+      <form onSubmit={submitHandler}>
         <input
+          className={editing ? "show" : "hidden"}
           name="reps"
           type="number"
           placeholder="reps"
-          value={inputField.reps}
-          onChange={changeHandler}
+          value={props.global.inputField.reps}
+          onChange={props.global.changeHandler}
         />
         <input
+          className={editing ? "show" : "hidden"}
           name="weight"
           type="number"
           placeholder="weight"
-          value={inputField.weight}
-          onChange={changeHandler}
+          value={props.global.inputField.weight}
+          onChange={props.global.changeHandler}
         />
-        <button>Update</button>
+        <button onClick={toggler}>{editing ? "Cancel" : "Edit"}</button>
+        <button onClick={deleteHandler}>
+          <img src={delete_red} alt="red delete icon" />
+        </button>
+        <button type="submit" className={editing ? "show" : "hidden"}>
+          Update
+        </button>
       </form>
     </div>
   );

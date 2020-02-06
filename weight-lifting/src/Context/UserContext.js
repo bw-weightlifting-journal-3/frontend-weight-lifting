@@ -1,24 +1,5 @@
-import React, { createContext } from 'react';
+import { createContext } from "react";
 
-const initialState = {
-  userName: '',
-  id: 1,
-  email: '',
-  isLoggedIn: false,
-  exercises: [
-    {
-      id: '',
-      name: '',
-      sets: [
-        {
-          id: 1,
-          reps: 0,
-          weight: 0,
-          isEditing: false
-        }
-      ]
-    }
-  ]
-};
+const InputFieldContext = createContext();
 
-export const UserContext = createContext(initialState);
+export default InputFieldContext;
