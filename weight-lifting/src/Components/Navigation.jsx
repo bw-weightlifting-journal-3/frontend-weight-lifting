@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/AxiosWithAuth';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 import Logo from '../assets/nextset.png';
 import {
   Collapse,
@@ -43,20 +44,26 @@ const Navigation = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
-            {/* <NavItem> 
-              <NavLink href="/components/">Components</NavLink>
+            <NavItem> 
+              <Link to="/">Home</Link>
             </NavItem> 
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-            </NavItem> */}
-            <UncontrolledDropdown nav inNavbar>
+              <Link to="/addworkout">Add Workout</Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/detailsview">Workout Details</Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/login">Login</Link>
+            </NavItem>
+            {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle>≡</DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>Create an Exercise</DropdownItem>
                 <DropdownItem>View Exercises</DropdownItem>
                 <DropdownItem>View User Info</DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
           </Nav>
           <NavbarText style={user}>Welcome, {name}!</NavbarText>
         </Collapse>

@@ -16,13 +16,11 @@ function App() {
   return (
     <div className='App'>
       <UserContext.Provider value={value}>
-      <Navigation />
-        <h1>Hello from App :D</h1>
-        <Router>
-          <Route exact path='/login' component={Login} />
-        </Router>
-        {/* <HomeView /> */}
-        {/* <AddWorkoutView /> */}
+        <Navigation />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/' component={HomeView} />
+        <Route exact path='/addworkout' component={AddWorkoutView} />
+        <Route exact path='/detailsview' component={DetailsView} />
         <DetailsView />
       </UserContext.Provider>
     </div>
