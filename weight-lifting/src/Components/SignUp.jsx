@@ -69,7 +69,11 @@ const SignUp = props => {
   );
 };
 
+<<<<<<< HEAD
 export default SignUp;
+=======
+export default Login;
+>>>>>>> 5f392025fdabe0e9c028ef4213905d02825e5b72
 
 const Wrapper = styled.div`
   display: flex;
