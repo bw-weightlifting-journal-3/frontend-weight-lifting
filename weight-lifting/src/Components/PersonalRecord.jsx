@@ -34,10 +34,6 @@ export default function PersonalRecord() {
                                     (set) => {
                                         return(
                                             set.weight
-                //                             ////////////////For Use Later////////
-                //                             find((weight) => {
-                //                                 return(Math.max(...weight))
-                                            // })
                                         )
                                     }
                                 )
@@ -47,7 +43,7 @@ export default function PersonalRecord() {
                 )
 
                 setMaxWeight(
-                    Math.max(weightsLifted)
+                    Math.max(...weightsLifted)
                 )
 
                 console.log("Are these the weights lifted?", weightsLifted);
