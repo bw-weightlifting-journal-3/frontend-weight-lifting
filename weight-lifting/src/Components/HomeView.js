@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navigation from './Navigation';
+import PersonalRecord from './PersonalRecord';
 
 // Have to pull in Personal Record component
 // Have to map over 'Exercises'
@@ -9,7 +10,7 @@ const HomeView = () => {
   return (
     <Wrapper>
       {/* Bring in Personal Record Component */}
-      <h3>This is our Personal Record Component</h3>
+      <PersonalRecord />
       <Header>Worked out Today</Header>
       {/* Map over workouts created */}
       <h1>Placeholder Card</h1>
