@@ -3,7 +3,7 @@ import axiosWithAuth from "../utils/AxiosWithAuth";
 import { withRouter } from "react-router-dom";
 
 const SetCard = props => {
-  const [inputField, setInputField] = useState({
+  const [inputField, setinputField] = useState({
     reps: props.data.reps,
     weight: props.data.weight
   });
@@ -14,7 +14,7 @@ const SetCard = props => {
   };
 
   const changeHandler = e => {
-    setInputField({ ...inputField, [e.target.name]: e.target.value });
+    setinputField({ ...inputField, [e.target.name]: e.target.value });
   };
   const submitHandler = e => {
     e.preventDefault();
@@ -30,24 +30,39 @@ const SetCard = props => {
         console.log(err);
       });
   };
+
+  const deleteHandler = e => {
+    e.preventDefault();
+    axiosWithAuth()
+      .delete(`/api/exercises/${props.match.params.id}/sets/${props.data.id}`)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  ///api/exercises/:id/sets/:set_id
+
   return (
     <div>
       <h2>
         {props.data.reps} reps for {props.data.weight}lbs
       </h2>
       <button onClick={toggler}>{editing ? "Cancel" : "Edit"}</button>
-      <button>X</button>
+      <button onClick={deleteHandler}>X</button>
       <form onSubmit={submitHandler} className={editing ? "show" : "hidden"}>
         <input
           name="reps"
-          type="numbers"
+          type="number"
           placeholder="reps"
           value={inputField.reps}
           onChange={changeHandler}
         />
         <input
           name="weight"
-          type="numbers"
+          type="number"
           placeholder="weight"
           value={inputField.weight}
           onChange={changeHandler}
