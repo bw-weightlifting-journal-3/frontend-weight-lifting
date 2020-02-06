@@ -16,8 +16,10 @@ export default function PersonalRecord() {
 
     // const [objectContainingMax, setObjectContainingMax] = useState([]);
 
-    
-    
+    const [objectSetToArr, setObjectSetToArr] = useState([]);
+    const thisBeOurSets = [];
+    const thisBeOurWeights = [];
+
     useEffect(() => {
 
 
@@ -26,27 +28,44 @@ export default function PersonalRecord() {
           .get("api/user")
           .then(
             (res) => {
-                setWeightsLifted(
-                    res.data.exercises.map(
+                console.log(res)
+                    const setData = res.data.exercises.map(
                         (exercise) => {
-                            return(
-                                exercise.sets.map(
-                                    (set) => {
-                                        return(
-                                            set.weight
-                                        )
-                                    }
-                                )
+                            exercise.sets.map(
+                                (set) => {
+                                    console.log("This is a set", set);
+                                    return thisBeOurSets.push(set)
+                                }
                             )
                         }
                     )
-                )
 
-                setMaxWeight(
-                    Math.max(...weightsLifted)
-                )
 
-                console.log("Are these the weights lifted?", weightsLifted);
+
+                thisBeOurSets.map((set) => {
+                    thisBeOurWeights.push(set.weight)
+                })
+
+                const weightNumberMax = Math.max(...thisBeOurWeights)
+
+                // const weightStringToNum = parseInt(weightNumberMax)
+
+                setMaxWeight(weightNumberMax)
+
+                // console.log("Weight string to Num", weightStringToNum)
+
+                console.log("weightNumberMax", typeof weightNumberMax)
+
+                // setMaxWeight()
+                // setObjectSetToArr(
+                //     Object.values(maxWeight)
+                // )
+
+                // setMaxWeight(
+                //     Math.max(...weightsLifted)
+                // )
+
+                console.log("Are these the weights lifted?", maxWeight);
 
                 console.log("Succesfully recieved data", res)
                 console.log("sets arrays", res.data.exercises.map((exercise) => {
@@ -62,6 +81,10 @@ export default function PersonalRecord() {
         };
 
         gettingMaxWeight()
+
+        console.log("This is thisBeOurSets", thisBeOurSets)
+        console.log("This is thisBeOurWeights", thisBeOurWeights)
+
 
         // setMaxWeight(250)
         // setRepsOfMaxWeight(8)
