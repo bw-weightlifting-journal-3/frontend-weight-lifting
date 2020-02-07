@@ -9,8 +9,6 @@ export default function PersonalRecord() {
     const [exerciseNameOfMax, setExerciseNameOfMax] = useState([]);
     const [bodyRegionOfMax, setBodyRegionOfMax] = useState([]);
 
-    // const [objectContainingMax, setObjectContainingMax] = useState([]);
-
     const [objectSetToArr, setObjectSetToArr] = useState([]);
     const userSets = [];
     const userWeights = [];
@@ -40,22 +38,12 @@ export default function PersonalRecord() {
 
                 const weightNumberMax = Math.max(...userWeights)
 
-                // const weightStringToNum = parseInt(weightNumberMax)
 
                 setMaxWeight(weightNumberMax)
 
-                // console.log("Weight string to Num", weightStringToNum)
 
                 console.log("weightNumberMax", typeof weightNumberMax)
 
-                // setMaxWeight()
-                // setObjectSetToArr(
-                //     Object.values(maxWeight)
-                // )
-
-                // setMaxWeight(
-                //     Math.max(...weightsLifted)
-                // )
 
                 console.log("Are these the weights lifted?", maxWeight);
 
@@ -77,8 +65,6 @@ export default function PersonalRecord() {
         console.log("This is userSets", userSets)
         console.log("This is userWeights", userWeights)
 
-        // setMaxWeight(250)
-        // setRepsOfMaxWeight(8)
 
         console.log("This is the maxWeight State", maxWeight);
 
@@ -135,7 +121,7 @@ export default function PersonalRecord() {
         <div className='pr-max-weight container'>
           <h1 className='pr-max-weight-number'>{maxWeight}</h1>
           <p className='units-of-measure lbs'>LBS</p>
-}
+};
 
 // border: 1px solid peru;
 
@@ -231,64 +217,4 @@ export default function PersonalRecord() {
 //     color: gray;
 //   }
 
-////////////////////My Version Of The API//////////////
 
-// const remadeData = {
-    //     id: 1,
-    //     email: "me@me.com",
-    //     name: "Me",
-    //     exercises: [{
-    //         id: 1,
-    //         user_id: 1,
-    //         region_id: 4,
-    //         name: "Deadlift",
-    //         timestamp: 1580533720,
-    //         sets: [{
-    //             id: 1,
-    //             reps: 5,
-    //             weight: 150,
-    //         __proto__: Object,
-    //         },
-    //         {
-    //             id: 2,
-    //             reps: 6,
-    //             weight: 160,
-    //             __proto__: Object,
-    //         }],
-
-    //     },{
-    //         id: 2,
-    //         user_id: 1,
-    //         region_id: 1,
-    //         name: "Bench press",
-    //         timestamp: 1580533721,
-    //         sets: [{
-    //             id: 3,
-    //             reps: 7,
-    //             weight: 170,
-    //             __proto__: Object,
-    //         },{
-    //             id: 4,
-    //             reps: 8,
-    //             weight: 180,
-    //         }],
-    //     }]
-
-    // };
-
-    // console.log("This is my data", remadeData);
-
-    // function newMaxWeight() {
-    //     remadeData.excercises.filter((excerciseObjects) => {
-    //         return(
-    //             Math.max(excerciseObjects.sets.weight)
-    //         )
-    //     })
-    // }
-
-import React from 'react';
-const PersonalRecord = () => {
-  return <div>Personal Record Showing</div>;
-};
-
-export default PersonalRecord;
