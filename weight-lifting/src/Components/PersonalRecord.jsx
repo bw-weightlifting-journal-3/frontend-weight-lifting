@@ -1,328 +1,295 @@
-// import React, { useState, useEffect } from 'react';
-// import axiosWithAuth from '../utils/AxiosWithAuth';
+import React, { useState, useEffect } from 'react';
+import axiosWithAuth from '../utils/AxiosWithAuth';
 
-// // import PersonalRecord from "./Components/PersonalRecord"
-// // <PersonalRecord/>
+export default function PersonalRecord() {
+  const [weightsLifted, setWeightsLifted] = useState ([]);
+  const [maxWeight, setMaxWeight] = useState([]);
+  const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
 
-// export default function PersonalRecord() {
+ 
 
-//     const [weightsLifted, setWeightsLifted] = useState ([]);
+  return (
+    <div className='pr-component'>
+      <div className='pr-title container'>
+        <p>Personal Record</p>
+      </div>
 
-//   const [maxWeight, setMaxWeight] = useState([]);
-//   const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
+      <div className='pr-numbers container'>
+        <div className='pr-max-weight container'>
+          <h1 className='pr-max-weight-number'>{maxWeight}</h1>
+          <p className='units-of-measure lbs'>LBS</p>
 
-//   useEffect(() => {
-//     const getMaxWeight = () => {
-//       axios
-//         .get('https://bw-weightlifting-journal.herokuapp.com/api/user')
-//         .then(res => {
-//           // setMaxWeight(
-//           //     res.data.exercise.weight.filter((weight) => {
-//           //         Math.max(weight)
-//           //     } ) )
-//           // setRepsOfMaxWeight(
-//           //     res.data.exercise.weight.filter((weight) => {
-//           //         Math.max(weight)
-//           //     } ) )
+    const [maxWeight, setMaxWeight] = useState([]);
+    const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
 
-//           console.log('Succesfully recieved data', res);
-//         })
-//         .catch(error => {
-//           console.error(
-//             'A Message From Me, Tyler. Your API Call Has An Error:',
-//             error
-//           );
-//         });
-//     };
+    const [exerciseNameOfMax, setExerciseNameOfMax] = useState([]);
+    const [bodyRegionOfMax, setBodyRegionOfMax] = useState([]);
 
-//     setMaxWeight(400);
-//     setRepsOfMaxWeight(9);
+    // const [objectContainingMax, setObjectContainingMax] = useState([]);
 
-//     getMaxWeight();
-//   }, []);
+    const [objectSetToArr, setObjectSetToArr] = useState([]);
+    const thisBeOurSets = [];
+    const thisBeOurWeights = [];
 
-//   return (
-//     <div className='pr-component'>
-//       <div className='pr-title container'>
-//         <p>Personal Record</p>
-//       </div>
+    useEffect(() => {
 
-//       <div className='pr-numbers container'>
-//         <div className='pr-max-weight container'>
-//           <h1 className='pr-max-weight-number'>{maxWeight}</h1>
-//           <p className='units-of-measure lbs'>LBS</p>
+        const gettingMaxWeight = () => {
+          axiosWithAuth()
+          .get("api/user")
+          .then(
+            (res) => {
+                console.log(res)
+                    const setData = res.data.exercises.map(
+                        (exercise) => {
+                            exercise.sets.map(
+                                (set) => {
+                                    console.log("This is a set", set);
+                                    return thisBeOurSets.push(set)
+                                }
+                            )
+                        }
+                    )
 
-//     const [maxWeight, setMaxWeight] = useState([]);
-//     const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
+                thisBeOurSets.map((set) => {
+                    thisBeOurWeights.push(set.weight)
+                })
 
-//     const [exerciseNameOfMax, setExerciseNameOfMax] = useState([]);
-//     const [bodyRegionOfMax, setBodyRegionOfMax] = useState([]);
+                const weightNumberMax = Math.max(...thisBeOurWeights)
 
-//     // const [objectContainingMax, setObjectContainingMax] = useState([]);
+                // const weightStringToNum = parseInt(weightNumberMax)
 
-//     const [objectSetToArr, setObjectSetToArr] = useState([]);
-//     const thisBeOurSets = [];
-//     const thisBeOurWeights = [];
+                setMaxWeight(weightNumberMax)
 
-//     useEffect(() => {
+                // console.log("Weight string to Num", weightStringToNum)
 
-//         const gettingMaxWeight = () => {
-//           axiosWithAuth()
-//           .get("api/user")
-//           .then(
-//             (res) => {
-//                 console.log(res)
-//                     const setData = res.data.exercises.map(
-//                         (exercise) => {
-//                             exercise.sets.map(
-//                                 (set) => {
-//                                     console.log("This is a set", set);
-//                                     return thisBeOurSets.push(set)
-//                                 }
-//                             )
-//                         }
-//                     )
+                console.log("weightNumberMax", typeof weightNumberMax)
 
-//                 thisBeOurSets.map((set) => {
-//                     thisBeOurWeights.push(set.weight)
-//                 })
+                // setMaxWeight()
+                // setObjectSetToArr(
+                //     Object.values(maxWeight)
+                // )
 
-//                 const weightNumberMax = Math.max(...thisBeOurWeights)
+                // setMaxWeight(
+                //     Math.max(...weightsLifted)
+                // )
 
-//                 // const weightStringToNum = parseInt(weightNumberMax)
+                console.log("Are these the weights lifted?", maxWeight);
 
-//                 setMaxWeight(weightNumberMax)
+                console.log("Succesfully recieved data", res)
+                console.log("sets arrays", res.data.exercises.map((exercise) => {
+                    return (exercise.sets);
+                }))
+            }
+          )
+          .catch(
+            error => {
+              console.error('A Message From Me, Tyler. Your API Call Has An Error:', error);
+            }
+          )
+        };
 
-//                 // console.log("Weight string to Num", weightStringToNum)
+        gettingMaxWeight()
 
-//                 console.log("weightNumberMax", typeof weightNumberMax)
+        console.log("This is thisBeOurSets", thisBeOurSets)
+        console.log("This is thisBeOurWeights", thisBeOurWeights)
 
-//                 // setMaxWeight()
-//                 // setObjectSetToArr(
-//                 //     Object.values(maxWeight)
-//                 // )
+        // setMaxWeight(250)
+        // setRepsOfMaxWeight(8)
 
-//                 // setMaxWeight(
-//                 //     Math.max(...weightsLifted)
-//                 // )
+        console.log("This is the maxWeight State", maxWeight);
 
-//                 console.log("Are these the weights lifted?", maxWeight);
+      }, []);
 
-//                 console.log("Succesfully recieved data", res)
-//                 console.log("sets arrays", res.data.exercises.map((exercise) => {
-//                     return (exercise.sets);
-//                 }))
-//             }
-//           )
-//           .catch(
-//             error => {
-//               console.error('A Message From Me, Tyler. Your API Call Has An Error:', error);
-//             }
-//           )
-//         };
+    return(
+        <div className="pr-component">
+            <div className="pr-title container">
+                <p>Personal Record</p>
+            </div>
 
-//         gettingMaxWeight()
+            <div className="pr-numbers container">
 
-//         console.log("This is thisBeOurSets", thisBeOurSets)
-//         console.log("This is thisBeOurWeights", thisBeOurWeights)
+                <div className="pr-max-weight container">
+                    <h1 className="pr-max-weight-number">{maxWeight}</h1>
+                    <p className="units-of-measure lbs">LBS</p>
+                </div>
 
-//         // setMaxWeight(250)
-//         // setRepsOfMaxWeight(8)
+                <div className="pr-max-reps container">
+                    <h1 className="pr-max-reps-number">{repsOfMaxWeight}</h1>
+                    <p className="units-of-measure reps">REPS</p>
+                </div>
 
-//         console.log("This is the maxWeight State", maxWeight);
+            </div>
 
-//       }, []);
+            <div className="pr-exercise-body-region container">
+<p className="pr-exercise-body-region">{exerciseNameOfMax}* PR Exercise Name *   |    {bodyRegionOfMax}*PR Body Region Name *</p>
+            </div>
 
-//     return(
-//         <div className="pr-component">
-//             <div className="pr-title container">
-//                 <p>Personal Record</p>
-//             </div>
+        </div>
 
-//             <div className="pr-numbers container">
+        <div className='pr-max-reps container'>
+          <h1 className='pr-max-reps-number'>{repsOfMaxWeight}</h1>
+          <p className='units-of-measure reps'>REPS</p>
+        </div>
+      </div>
 
-//                 <div className="pr-max-weight container">
-//                     <h1 className="pr-max-weight-number">{maxWeight}</h1>
-//                     <p className="units-of-measure lbs">LBS</p>
-//                 </div>
+      <div className='pr-exercise-body-region container'>
+        <p className='pr-exercise-body-region'>
+          {/* PR Exercise Name */}* PR Exercise Name * |{' '}
+          {/* PR Body Region Name */} *PR Body Region Name *
+        </p>
+      </div>
+    </div>
+  );
+}
 
-//                 <div className="pr-max-reps container">
-//                     <h1 className="pr-max-reps-number">{repsOfMaxWeight}</h1>
-//                     <p className="units-of-measure reps">REPS</p>
-//                 </div>
+// border: 1px solid peru;
 
-//             </div>
+///////////////////////////Styling/////////////////////////
 
-//             <div className="pr-exercise-body-region container">
-// <p className="pr-exercise-body-region">{exerciseNameOfMax}* PR Exercise Name *   |    {bodyRegionOfMax}*PR Body Region Name *</p>
-//             </div>
+// .pr-component {
 
-//         </div>
-
-//         <div className='pr-max-reps container'>
-//           <h1 className='pr-max-reps-number'>{repsOfMaxWeight}</h1>
-//           <p className='units-of-measure reps'>REPS</p>
-//         </div>
-//       </div>
-
-//       <div className='pr-exercise-body-region container'>
-//         <p className='pr-exercise-body-region'>
-//           {/* PR Exercise Name */}* PR Exercise Name * |{' '}
-//           {/* PR Body Region Name */} *PR Body Region Name *
-//         </p>
-//       </div>
-//     </div>
-//   );
+//   max-width: 25%;
+//   color: white;
+//   background-color: black;
+//   margin: auto;
 // }
 
-// // border: 1px solid peru;
+// .pr-title {
+//   display: flex;
+//   align-items: flex-start;
+// }
 
-// ///////////////////////////Styling/////////////////////////
+// .pr-numbers {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+// }
 
-// // .pr-component {
+// .pr-max-weight {
+//   display: flex;
+//   flex-direction: row;
+//   align-content: bottom;
+// }
 
-// //   max-width: 25%;
-// //   color: white;
-// //   background-color: black;
-// //   margin: auto;
-// // }
+// .pr-max-reps {
+//   display: flex;
+//   flex-direction: row;
+//   align-content: bottom;
+// }
 
-// // .pr-title {
-// //   display: flex;
-// //   align-items: flex-start;
-// // }
+// .lbs {
+//   padding-right: 20px;
+//   padding-left: 10px;
+//   align-self: flex-end;
+// }
 
-// // .pr-numbers {
-// //   display: flex;
-// //   flex-direction: row;
-// //   justify-content: center;
-// // }
+// .reps {
+//   padding-right: 10px;
+//   padding-left: 10px;
+//   align-self: flex-end;
+// }
 
-// // .pr-max-weight {
-// //   display: flex;
-// //   flex-direction: row;
-// //   align-content: bottom;
-// // }
+// //   /* border: 1px solid peru; */
 
-// // .pr-max-reps {
-// //   display: flex;
-// //   flex-direction: row;
-// //   align-content: bottom;
-// // }
+//     max-width: 27%;
+//     color: white;
+//     background-color: black;
+//     margin: auto;
+//   }
 
-// // .lbs {
-// //   padding-right: 20px;
-// //   padding-left: 10px;
-// //   align-self: flex-end;
-// // }
+//   .pr-title {
+//     display: flex;
+//     align-items: flex-start;
+//   }
 
-// // .reps {
-// //   padding-right: 10px;
-// //   padding-left: 10px;
-// //   align-self: flex-end;
-// // }
+//   .pr-numbers {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//   }
 
-// // //   /* border: 1px solid peru; */
+//   .pr-max-weight {
+//     display: flex;
+//     flex-direction: row;
+//     align-content: bottom;
+//   }
 
-// //     max-width: 27%;
-// //     color: white;
-// //     background-color: black;
-// //     margin: auto;
-// //   }
+//   .pr-max-reps {
+//     display: flex;
+//     flex-direction: row;
+//     align-content: bottom;
+//   }
 
-// //   .pr-title {
-// //     display: flex;
-// //     align-items: flex-start;
-// //   }
+//   .lbs {
+//     padding-right: 20px;
+//     padding-left: 10px;
+//     align-self: flex-end;
+//   }
 
-// //   .pr-numbers {
-// //     display: flex;
-// //     flex-direction: row;
-// //     justify-content: center;
-// //   }
+//   .reps {
+//     padding-right: 10px;
+//     padding-left: 10px;
+//     align-self: flex-end;
+//   }
 
-// //   .pr-max-weight {
-// //     display: flex;
-// //     flex-direction: row;
-// //     align-content: bottom;
-// //   }
+//   .pr-exercise-body-region {
+//     color: gray;
+//   }
 
-// //   .pr-max-reps {
-// //     display: flex;
-// //     flex-direction: row;
-// //     align-content: bottom;
-// //   }
+////////////////////My Version Of The API//////////////
 
-// //   .lbs {
-// //     padding-right: 20px;
-// //     padding-left: 10px;
-// //     align-self: flex-end;
-// //   }
+// const remadeData = {
+    //     id: 1,
+    //     email: "me@me.com",
+    //     name: "Me",
+    //     exercises: [{
+    //         id: 1,
+    //         user_id: 1,
+    //         region_id: 4,
+    //         name: "Deadlift",
+    //         timestamp: 1580533720,
+    //         sets: [{
+    //             id: 1,
+    //             reps: 5,
+    //             weight: 150,
+    //         __proto__: Object,
+    //         },
+    //         {
+    //             id: 2,
+    //             reps: 6,
+    //             weight: 160,
+    //             __proto__: Object,
+    //         }],
 
-// //   .reps {
-// //     padding-right: 10px;
-// //     padding-left: 10px;
-// //     align-self: flex-end;
-// //   }
+    //     },{
+    //         id: 2,
+    //         user_id: 1,
+    //         region_id: 1,
+    //         name: "Bench press",
+    //         timestamp: 1580533721,
+    //         sets: [{
+    //             id: 3,
+    //             reps: 7,
+    //             weight: 170,
+    //             __proto__: Object,
+    //         },{
+    //             id: 4,
+    //             reps: 8,
+    //             weight: 180,
+    //         }],
+    //     }]
 
-// //   .pr-exercise-body-region {
-// //     color: gray;
-// //   }
+    // };
 
-// ////////////////////My Version Of The API//////////////
+    // console.log("This is my data", remadeData);
 
-// // const remadeData = {
-//     //     id: 1,
-//     //     email: "me@me.com",
-//     //     name: "Me",
-//     //     exercises: [{
-//     //         id: 1,
-//     //         user_id: 1,
-//     //         region_id: 4,
-//     //         name: "Deadlift",
-//     //         timestamp: 1580533720,
-//     //         sets: [{
-//     //             id: 1,
-//     //             reps: 5,
-//     //             weight: 150,
-//     //         __proto__: Object,
-//     //         },
-//     //         {
-//     //             id: 2,
-//     //             reps: 6,
-//     //             weight: 160,
-//     //             __proto__: Object,
-//     //         }],
-
-//     //     },{
-//     //         id: 2,
-//     //         user_id: 1,
-//     //         region_id: 1,
-//     //         name: "Bench press",
-//     //         timestamp: 1580533721,
-//     //         sets: [{
-//     //             id: 3,
-//     //             reps: 7,
-//     //             weight: 170,
-//     //             __proto__: Object,
-//     //         },{
-//     //             id: 4,
-//     //             reps: 8,
-//     //             weight: 180,
-//     //         }],
-//     //     }]
-
-//     // };
-
-//     // console.log("This is my data", remadeData);
-
-//     // function newMaxWeight() {
-//     //     remadeData.excercises.filter((excerciseObjects) => {
-//     //         return(
-//     //             Math.max(excerciseObjects.sets.weight)
-//     //         )
-//     //     })
-//     // }
+    // function newMaxWeight() {
+    //     remadeData.excercises.filter((excerciseObjects) => {
+    //         return(
+    //             Math.max(excerciseObjects.sets.weight)
+    //         )
+    //     })
+    // }
 
 import React from 'react';
 const PersonalRecord = () => {
