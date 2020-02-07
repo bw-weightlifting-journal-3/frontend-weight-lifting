@@ -66,7 +66,7 @@ export default function PersonalRecord() {
 
     return(
         <div className="pr-component">
-            
+
             <div className="pr-title container">
                 <p>Personal Record</p>
             </div>
@@ -87,12 +87,10 @@ export default function PersonalRecord() {
   
 };
 
-// border: 1px solid peru;
 
 ///////////////////////////Styling/////////////////////////
 
 // .pr-component {
-
 //   max-width: 25%;
 //   color: white;
 //   background-color: black;
@@ -116,69 +114,11 @@ export default function PersonalRecord() {
 //   align-content: bottom;
 // }
 
-// .pr-max-reps {
-//   display: flex;
-//   flex-direction: row;
-//   align-content: bottom;
-// }
 
 // .lbs {
 //   padding-right: 20px;
 //   padding-left: 10px;
 //   align-self: flex-end;
 // }
-
-// .reps {
-//   padding-right: 10px;
-//   padding-left: 10px;
-//   align-self: flex-end;
-// }
-
-// //   /* border: 1px solid peru; */
-
-//     max-width: 27%;
-//     color: white;
-//     background-color: black;
-//     margin: auto;
-//   }
-
-//   .pr-title {
-//     display: flex;
-//     align-items: flex-start;
-//   }
-
-//   .pr-numbers {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: center;
-//   }
-
-//   .pr-max-weight {
-//     display: flex;
-//     flex-direction: row;
-//     align-content: bottom;
-//   }
-
-//   .pr-max-reps {
-//     display: flex;
-//     flex-direction: row;
-//     align-content: bottom;
-//   }
-
-//   .lbs {
-//     padding-right: 20px;
-//     padding-left: 10px;
-//     align-self: flex-end;
-//   }
-
-//   .reps {
-//     padding-right: 10px;
-//     padding-left: 10px;
-//     align-self: flex-end;
-//   }
-
-//   .pr-exercise-body-region {
-//     color: gray;
-//   }
 
 
