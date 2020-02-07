@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Navigation from './Navigation';
-import Login from './Login';
 
 // Have to map over 'Sets'
 
 const DetailsView = () => {
   return (
     <Wrapper>
-
-
-      <Navigation />
-      <Login />
-
       <h1>Placeholder: Name of Set</h1>
       <h3>Placeholder: Set card</h3>
       <h3>Placeholder: Set card</h3>

@@ -1,23 +1,17 @@
+import React, { useState } from 'react';
 
-import React, { useState } from "react";
-
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "../App.css";
-
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import '../App.css';
 import styled from 'styled-components';
-import Navigation from './Navigation';
 import PersonalRecord from './PersonalRecord';
-
 
 // Have to pull in Personal Record component
 // Have to map over 'Exercises'
 
-import ExerciseList from "./ExerciseList";
-import SetList from "./SetList";
-import InputFieldContext from "../Context/UserContext";
-import Arrow from "../assets/arrow.svg";
+import ExerciseList from './ExerciseList';
+import SetList from './SetList';
+import InputFieldContext from '../Context/UserContext';
+import Arrow from '../assets/arrow.svg';
 
 const HomeView = () => {
   const changeHandler = e => {
@@ -25,36 +19,30 @@ const HomeView = () => {
   };
 
   const [inputField, setinputField] = useState({
-    reps: "",
-    weight: ""
+    reps: '',
+    weight: ''
   });
   return (
-
-    <div className="master_container">
+    <div className='master_container'>
       <Wrapper>
-        {/* Placeholder for Navbar */}
-        <Navigation />
         {/* Bring in Personal Record Component */}
-
+        <PersonalRecord />
         {/* Map over workouts created */}
 
         <InputFieldContext.Provider
-          value={{ inputField, setinputField, changeHandler }}
-        >
+          value={{ inputField, setinputField, changeHandler }}>
           <Router>
-            <Route exact path="/" component={ExerciseList} />
-            <Route exact path="/exercies/:id" component={SetList} />
+            <Route exact path='/' component={ExerciseList} />
+            <Route exact path='/exercies/:id' component={SetList} />
           </Router>
         </InputFieldContext.Provider>
-
+        
         {/* Link to the next page */}
         <Button>
-          Start Exercise <img src={Arrow} alt="arrow icon" />{" "}
+          Start Exercise <img src={Arrow} alt='arrow icon' />{' '}
         </Button>
       </Wrapper>
     </div>
-
-   
   );
 };
 

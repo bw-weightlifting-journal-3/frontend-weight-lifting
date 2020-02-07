@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Navigation from "./Navigation";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import SetList from './SetList';
 
 // Have to map over 'Sets'
 
 const AddWorkoutView = () => {
   const [addSet, setAddSet] = useState({
-    weight: "",
-    sets: ""
+    weight: '',
+    sets: ''
   });
 
   const changeHandler = e => {
@@ -17,8 +17,8 @@ const AddWorkoutView = () => {
   const SubmitHandler = e => {
     e.preventDefault();
     setAddSet({
-      weight: "",
-      sets: ""
+      weight: '',
+      sets: ''
     });
   };
 
@@ -26,9 +26,6 @@ const AddWorkoutView = () => {
     <Wrapper>
       {/* Input field to add sets */}
       <Form onSubmit={SubmitHandler}>
-
-  
-
         <OuterDiv>
           <DivLeft>
             <h3>Weight</h3>
@@ -51,10 +48,8 @@ const AddWorkoutView = () => {
             />
           </DivRight>
         </OuterDiv>
-        
-        
-        <AddButton type='submit'>Add Set</AddButton>
 
+        <AddButton type='submit'>Add Set</AddButton>
       </Form>
       {/* Our sets will go here */}
       {/* Link to the next page */}
@@ -98,7 +93,7 @@ const Button = styled.button`
 `;
 
 const Wrapper = styled.div`
-  background: darkgrey;
+  background: white;
   height: 100vh;
   width: 100vw;
   margin: 0 auto;
@@ -128,9 +123,7 @@ const Form = styled.form`
   // background-color: black;
 `;
 
-const OuterDiv = styled.div`
-  
-`
+const OuterDiv = styled.div``;
 
 const DivLeft = styled.div`
   @media (min-width: 500px) {
@@ -141,8 +134,7 @@ const DivLeft = styled.div`
   @media (min-width: 750px) {
     width: 100%;
   }
-  
-`
+`;
 
 const DivRight = styled.div`
   @media (min-width: 500px) {
@@ -153,4 +145,4 @@ const DivRight = styled.div`
   @media (min-width: 750px) {
     width: 100%;
   }
-`
+`;
