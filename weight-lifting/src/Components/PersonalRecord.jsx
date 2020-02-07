@@ -102,25 +102,10 @@ export default function PersonalRecord() {
         </div>
       </div>
 
-      <div className='pr-exercise-body-region container'>
-        <p className='pr-exercise-body-region'>
-          {/* PR Exercise Name */}* PR Exercise Name * |{' '}
-          {/* PR Body Region Name */} *PR Body Region Name *
-        </p>
-      </div>
     </div>
   );
 
-  return (
-    <div className='pr-component'>
-      <div className='pr-title container'>
-        <p>Personal Record</p>
-      </div>
-
-      <div className='pr-numbers container'>
-        <div className='pr-max-weight container'>
-          <h1 className='pr-max-weight-number'>{maxWeight}</h1>
-          <p className='units-of-measure lbs'>LBS</p>
+  
 };
 
 // border: 1px solid peru;
