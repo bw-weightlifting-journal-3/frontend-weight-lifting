@@ -2,14 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/AxiosWithAuth';
 
 export default function PersonalRecord() {
-    const [weightsLifted, setWeightsLifted] = useState ([]);
     const [maxWeight, setMaxWeight] = useState([]);
-    const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
 
-    const [exerciseNameOfMax, setExerciseNameOfMax] = useState([]);
-    const [bodyRegionOfMax, setBodyRegionOfMax] = useState([]);
-
-    const [objectSetToArr, setObjectSetToArr] = useState([]);
     const userSets = [];
     const userWeights = [];
 
@@ -72,6 +66,7 @@ export default function PersonalRecord() {
 
     return(
         <div className="pr-component">
+            
             <div className="pr-title container">
                 <p>Personal Record</p>
             </div>
@@ -83,27 +78,11 @@ export default function PersonalRecord() {
                     <p className="units-of-measure lbs">LBS</p>
                 </div>
 
-                <div className="pr-max-reps container">
-                    <h1 className="pr-max-reps-number">{repsOfMaxWeight}</h1>
-                    <p className="units-of-measure reps">REPS</p>
-                </div>
-
-            </div>
-
-            <div className="pr-exercise-body-region container">
-    <p className="pr-exercise-body-region">{exerciseNameOfMax}* PR Exercise Name *   |    {bodyRegionOfMax}*PR Body Region Name *</p>
             </div>
 
         </div>
 
-        <div className='pr-max-reps container'>
-          <h1 className='pr-max-reps-number'>{repsOfMaxWeight}</h1>
-          <p className='units-of-measure reps'>REPS</p>
-        </div>
-      </div>
-
-    </div>
-  );
+    );
 
   
 };
