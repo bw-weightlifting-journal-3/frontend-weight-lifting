@@ -2,23 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/AxiosWithAuth';
 
 export default function PersonalRecord() {
-  const [weightsLifted, setWeightsLifted] = useState ([]);
-  const [maxWeight, setMaxWeight] = useState([]);
-  const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
-
- 
-
-  return (
-    <div className='pr-component'>
-      <div className='pr-title container'>
-        <p>Personal Record</p>
-      </div>
-
-      <div className='pr-numbers container'>
-        <div className='pr-max-weight container'>
-          <h1 className='pr-max-weight-number'>{maxWeight}</h1>
-          <p className='units-of-measure lbs'>LBS</p>
-
+    const [weightsLifted, setWeightsLifted] = useState ([]);
     const [maxWeight, setMaxWeight] = useState([]);
     const [repsOfMaxWeight, setRepsOfMaxWeight] = useState([]);
 
@@ -28,8 +12,8 @@ export default function PersonalRecord() {
     // const [objectContainingMax, setObjectContainingMax] = useState([]);
 
     const [objectSetToArr, setObjectSetToArr] = useState([]);
-    const thisBeOurSets = [];
-    const thisBeOurWeights = [];
+    const userSets = [];
+    const userWeights = [];
 
     useEffect(() => {
 
@@ -44,17 +28,17 @@ export default function PersonalRecord() {
                             exercise.sets.map(
                                 (set) => {
                                     console.log("This is a set", set);
-                                    return thisBeOurSets.push(set)
+                                    return userSets.push(set)
                                 }
                             )
                         }
                     )
 
-                thisBeOurSets.map((set) => {
-                    thisBeOurWeights.push(set.weight)
+                userSets.map((set) => {
+                    userWeights.push(set.weight)
                 })
 
-                const weightNumberMax = Math.max(...thisBeOurWeights)
+                const weightNumberMax = Math.max(...userWeights)
 
                 // const weightStringToNum = parseInt(weightNumberMax)
 
@@ -90,8 +74,8 @@ export default function PersonalRecord() {
 
         gettingMaxWeight()
 
-        console.log("This is thisBeOurSets", thisBeOurSets)
-        console.log("This is thisBeOurWeights", thisBeOurWeights)
+        console.log("This is userSets", userSets)
+        console.log("This is userWeights", userWeights)
 
         // setMaxWeight(250)
         // setRepsOfMaxWeight(8)
@@ -121,7 +105,7 @@ export default function PersonalRecord() {
             </div>
 
             <div className="pr-exercise-body-region container">
-<p className="pr-exercise-body-region">{exerciseNameOfMax}* PR Exercise Name *   |    {bodyRegionOfMax}*PR Body Region Name *</p>
+    <p className="pr-exercise-body-region">{exerciseNameOfMax}* PR Exercise Name *   |    {bodyRegionOfMax}*PR Body Region Name *</p>
             </div>
 
         </div>
@@ -140,6 +124,17 @@ export default function PersonalRecord() {
       </div>
     </div>
   );
+
+  return (
+    <div className='pr-component'>
+      <div className='pr-title container'>
+        <p>Personal Record</p>
+      </div>
+
+      <div className='pr-numbers container'>
+        <div className='pr-max-weight container'>
+          <h1 className='pr-max-weight-number'>{maxWeight}</h1>
+          <p className='units-of-measure lbs'>LBS</p>
 }
 
 // border: 1px solid peru;
