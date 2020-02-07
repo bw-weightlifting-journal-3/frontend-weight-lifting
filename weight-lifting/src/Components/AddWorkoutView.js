@@ -53,7 +53,6 @@ const AddWorkoutView = () => {
       </Form>
       {/* Our sets will go here */}
       {/* Link to the next page */}
-      {/* <SetList /> */}
       <Button>Start Exercise →</Button>
     </Wrapper>
   );

@@ -17,14 +17,12 @@ function App() {
   return (
     <div>
       <Navigation />
-      <Router>
-        <Switch>
-          <Route exact path='/' component={Credentials} />
-          <PrivateRoute exact path='/home' component={HomeView} />
-          <PrivateRoute exact path='/add' component={AddWorkoutView} />
-          <PrivateRoute exact path='/details' component={DetailsView} />
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path='/' component={Credentials} />
+        <PrivateRoute exact path='/home' component={HomeView} />
+        <PrivateRoute exact path='/add' component={AddWorkoutView} />
+        <PrivateRoute exact path='/details' component={DetailsView} />
+      </Switch>
     </div>
   );
 }
