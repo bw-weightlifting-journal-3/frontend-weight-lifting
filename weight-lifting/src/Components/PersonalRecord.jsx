@@ -36,9 +36,6 @@ export default function PersonalRecord() {
                 setMaxWeight(weightNumberMax)
 
 
-                console.log("weightNumberMax", typeof weightNumberMax)
-
-
                 console.log("Are these the weights lifted?", maxWeight);
 
                 console.log("Succesfully recieved data", res)

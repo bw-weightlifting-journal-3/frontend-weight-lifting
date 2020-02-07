@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 
-import PersonalRecord from "./Components/PersonalRecord"
-
 // importing Nav / views
 import Navigation from './Components/Navigation';
 import HomeView from './Components/HomeView';
@@ -19,7 +17,6 @@ function App() {
   return (
     <div>
       <Navigation />
-      <PersonalRecord />
       <Switch>
         <Route exact path='/' component={Credentials} />
         <PrivateRoute exact path='/home' component={HomeView} />
