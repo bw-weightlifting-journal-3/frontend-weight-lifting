@@ -39,9 +39,7 @@ const SignUp = props => {
 
   return (
     <Wrapper>
-      <Header style={{ color: 'red' }}>
-        What are you waiting for...? Start getting PUMPED!
-      </Header>
+      <Header style={{ color: 'red' }}>Sign Up</Header>
       <StyledForm onSubmit={SubmitHandler}>
         <StyledInput
           name='name'

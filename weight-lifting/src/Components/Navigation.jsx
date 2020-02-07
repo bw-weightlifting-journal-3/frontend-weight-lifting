@@ -18,8 +18,8 @@ import {
   NavbarText
 } from 'reactstrap';
 
-const Navigation = (props) => {
-  const [name, setName] = useState("");
+const Navigation = props => {
+  const [name, setName] = useState('');
 
   useEffect(() => {
     axiosWithAuth()
@@ -40,21 +40,31 @@ const Navigation = (props) => {
   return (
     <div>
       <Navbar color='light' light expand='md'>
-        <NavbarBrand href="#"><img style={img} src={Logo}/></NavbarBrand>
+        <NavbarBrand href='#'>
+          <img style={img} src={Logo} />
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
-            <NavItem> 
-              <Link style={li} to="/">Home</Link>
-            </NavItem> 
             <NavItem>
-              <Link style={li} to="/addworkout">Add Workout</Link>
+              <Link style={li} to='/home'>
+                Home
+              </Link>
             </NavItem>
             <NavItem>
-              <Link style={li} to="/detailsview">Workout Details</Link>
+              <Link style={li} to='/add'>
+                Add Workout
+              </Link>
             </NavItem>
             <NavItem>
-              <Link style={li} to="/login">Login</Link>
+              <Link style={li} to='/details'>
+                Workout Details
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link style={li} to='/'>
+                Login
+              </Link>
             </NavItem>
             {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle>≡</DropdownToggle>
@@ -77,16 +87,16 @@ export default Navigation;
 
 // inline styling
 const user = {
-  marginRight: "1%",
-}
- const img = {
-   width: "200px",
-   height: "110px",
- }
+  marginRight: '1%'
+};
+const img = {
+  width: '200px',
+  height: '110px'
+};
 
- const li = {
-   textDecoration: "none",
-   margin: "5px",
-   padding: "5px",
-   color: "black",
- }
+const li = {
+  textDecoration: 'none',
+  margin: '5px',
+  padding: '5px',
+  color: 'black'
+};

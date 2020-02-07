@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <Wrapper>
-      <h1>Get Swole Yo!</h1>
+      <h1>Login</h1>
       <StyledForm onSubmit={SubmitHandler}>
         <StyledInput
           name='email'
