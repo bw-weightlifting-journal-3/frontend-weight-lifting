@@ -22,7 +22,6 @@ function App() {
         <PrivateRoute exact path='/home' component={HomeView} />
         <PrivateRoute exact path='/add' component={AddWorkoutView} />
         <PrivateRoute exact path='/details' component={DetailsView} />
-        
       </Switch>
     </div>
   );

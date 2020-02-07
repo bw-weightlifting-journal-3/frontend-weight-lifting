@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
-import AxiosWithAuth from "../utils/AxiosWithAuth";
-import SetCard from "./SetCard";
-import inputFieldContext from "../Context/UserContext";
+import React, { useEffect, useState, useContext } from 'react';
+import AxiosWithAuth from '../utils/AxiosWithAuth';
+import SetCard from './SetCard';
+import inputFieldContext from '../Context/UserContext';
 
 const SetList = props => {
   //global State
@@ -15,15 +15,15 @@ const SetList = props => {
     AxiosWithAuth()
       .get(`api/exercises/${props.match.params.id}/sets`)
       .then(res => {
-        console.log("res", res);
+        console.log('res', res);
         setSetInfo(res.data);
       })
       .catch(err => {
-        console.log("this is error 1", err);
+        console.log('this is error 1', err);
       });
     setinputField({
-      reps: "",
-      weight: ""
+      reps: '',
+      weight: ''
     });
   }, [setSetInfo]);
 
@@ -35,7 +35,7 @@ const SetList = props => {
         console.log(res);
       })
       .catch(err => {
-        console.log("this is error 2", err);
+        console.log('this is error 2', err);
       });
   };
 
@@ -47,7 +47,7 @@ const SetList = props => {
         console.log(res);
       })
       .catch(err => {
-        console.log("this is error 3", err);
+        console.log('this is error 3', err);
       });
   };
 
@@ -57,20 +57,20 @@ const SetList = props => {
       <form onSubmit={submitHandler}>
         <div>
           <input
-            name="reps"
-            type="number"
-            placeholder="reps"
+            name='reps'
+            type='number'
+            placeholder='reps'
             value={inputField.reps}
             onChange={changeHandler}
           />
           <input
-            name="weight"
-            type="number"
-            placeholder="weight"
+            name='weight'
+            type='number'
+            placeholder='weight'
             value={inputField.weight}
             onChange={changeHandler}
           />
-          <button type="submit"> Add Set</button>
+          <button type='submit'> Add Set</button>
         </div>
       </form>
 
@@ -84,7 +84,7 @@ const SetList = props => {
               />
             );
           })
-        : "You have done nothing"}
+        : 'You have done nothing'}
 
       <button onClick={exerciseDelete}>I delete Everyting You See</button>
     </div>
