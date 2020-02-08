@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
 
 const Login = () => {
   const [inputField, setInputField] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: ""
   });
 
   const changeHandler = e => {
@@ -16,15 +16,15 @@ const Login = () => {
     e.preventDefault();
     axios
       .post(
-        'https://bw-weightlifting-journal.herokuapp.com/api/login',
+        "https://bw-weightlifting-journal.herokuapp.com/api/login",
         inputField
       )
       .then(res => {
-        localStorage.setItem('token', res.data.token);
-        console.log(res);
+        localStorage.setItem("token", res.data.token);
+        console.log("token res", res);
       })
       .catch(err => {
-        console.log('err', err);
+        console.log("err", err);
       });
   };
 
@@ -33,22 +33,22 @@ const Login = () => {
       <h1>Login</h1>
       <StyledForm onSubmit={SubmitHandler}>
         <StyledInput
-          name='email'
-          type='text'
-          placeholder='email'
+          name="email"
+          type="text"
+          placeholder="email"
           value={inputField.email}
           onChange={changeHandler}
         />
         <br />
         <StyledInput
-          name='password'
-          type='password'
-          placeholder='password'
+          name="password"
+          type="password"
+          placeholder="password"
           value={inputField.password}
           onChange={changeHandler}
         />
         <br />
-        <StyledButton typeof='submit'>LogIn 🏋️‍</StyledButton>
+        <StyledButton typeof="submit">LogIn 🏋️‍</StyledButton>
       </StyledForm>
     </Wrapper>
   );
