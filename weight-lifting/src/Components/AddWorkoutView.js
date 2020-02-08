@@ -7,8 +7,8 @@ import WorkoutSetCard from "./WorkoutSetCard";
 
 const AddWorkoutView = () => {
   const [title, setTitle] = useState({
-    title: "",
-    region_id: "",
+    name: "",
+    region_id: "1",
     timestamp: Date.now()
   });
   const titleHandler = e => {
@@ -16,8 +16,8 @@ const AddWorkoutView = () => {
   };
 
   const [addSet, setAddSet] = useState({
-    weight: "",
-    sets: ""
+    weight: 0,
+    reps: 0
   });
 
   const [allSets, setAllSets] = useState([]);
@@ -29,27 +29,46 @@ const AddWorkoutView = () => {
   const SubmitHandler = e => {
     e.preventDefault();
     AxiosWithAuth()
-      .post("api/exercises", allSets)
+      .post("api/exercises", title)
       .then(res => {
         console.log("post Res", res);
+        allSets.forEach(cv => {
+          AxiosWithAuth()
+            .post(`api/exercises/${res.data.id}/sets`, cv)
+            .then(result => {
+              console.log("result", result);
+            })
+            .catch(err => {
+              console.log("This is error", err);
+            });
+        });
       });
-    setAllSets([]);
+
+    console.log("title", title);
+    console.log("allSets", allSets);
   };
 
   const newSet = e => {
     e.preventDefault();
     setAllSets([...allSets, addSet]);
-    setAddSet({ weight: "", sets: "" });
+    setAddSet({ weight: 0, reps: 0 });
   };
 
   return (
     <div>
+      <button
+        onClick={() => {
+          console.log("allSets", allSets);
+        }}
+      >
+        State{" "}
+      </button>
       <Form onSubmit={""}>
         <Input
-          name="title"
+          name="name"
           type="text"
           placeholder="Barbell Curls"
-          value={title.title}
+          value={title.name}
           onChange={titleHandler}
         />
         <OuterDiv>
@@ -64,12 +83,12 @@ const AddWorkoutView = () => {
             />
           </DivLeft>
           <DivRight>
-            <h2>Sets</h2>
+            <h2>Reps</h2>
             <Input
-              name="sets"
+              name="reps"
               type="text"
-              placeholder="add sets"
-              value={addSet.sets}
+              placeholder="add Reps"
+              value={addSet.reps}
               onChange={changeHandler}
             />
           </DivRight>
@@ -84,7 +103,7 @@ const AddWorkoutView = () => {
           })
         : "You have done nothing"}
 
-      <button onClick="SubmitHandler"> End Exercise</button>
+      <button onClick={SubmitHandler}> End Exercise</button>
     </div>
   );
 };
