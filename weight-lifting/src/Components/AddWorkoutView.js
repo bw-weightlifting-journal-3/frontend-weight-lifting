@@ -1,61 +1,91 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import SetList from './SetList';
+import React, { useState } from "react";
+import styled from "styled-components";
+import AxiosWithAuth from "../utils/AxiosWithAuth";
+import WorkoutSetCard from "./WorkoutSetCard";
 
 // Have to map over 'Sets'
 
 const AddWorkoutView = () => {
+  const [title, setTitle] = useState({
+    title: "",
+    region_id: "",
+    timestamp: Date.now()
+  });
+  const titleHandler = e => {
+    setTitle({ ...title, [e.target.name]: e.target.value });
+  };
+
   const [addSet, setAddSet] = useState({
-    weight: '',
-    sets: ''
+    weight: "",
+    sets: ""
   });
 
+  const [allSets, setAllSets] = useState([]);
+
   const changeHandler = e => {
-    setAddSet({ [e.target.name]: e.target.value });
+    setAddSet({ ...addSet, [e.target.name]: e.target.value });
   };
 
   const SubmitHandler = e => {
     e.preventDefault();
-    setAddSet({
-      weight: '',
-      sets: ''
-    });
+    AxiosWithAuth()
+      .post("api/exercises", allSets)
+      .then(res => {
+        console.log("post Res", res);
+      });
+    setAllSets([]);
+  };
+
+  const newSet = e => {
+    e.preventDefault();
+    setAllSets([...allSets, addSet]);
+    setAddSet({ weight: "", sets: "" });
   };
 
   return (
-    <Wrapper>
-      {/* Input field to add sets */}
-      <Form onSubmit={SubmitHandler}>
+    <div>
+      <Form onSubmit={""}>
+        <Input
+          name="title"
+          type="text"
+          placeholder="Barbell Curls"
+          value={title.title}
+          onChange={titleHandler}
+        />
         <OuterDiv>
           <DivLeft>
-            <h3>Weight</h3>
+            <h2>Weight</h2>
             <Input
-              name='weight'
-              type='text'
-              placeholder='input weight'
+              name="weight"
+              type="text"
+              placeholder="input weight"
               value={addSet.weight}
               onChange={changeHandler}
             />
           </DivLeft>
           <DivRight>
-            <h3>Sets</h3>
+            <h2>Sets</h2>
             <Input
-              name='sets'
-              type='text'
-              placeholder='add sets'
+              name="sets"
+              type="text"
+              placeholder="add sets"
               value={addSet.sets}
               onChange={changeHandler}
             />
           </DivRight>
         </OuterDiv>
 
-        <AddButton type='submit'>Add Set</AddButton>
+        <button onClick={newSet}>Add Sets</button>
       </Form>
 
-      {/* <SetList /> */}
-      {/* Link to the next page */}
-      <Button>Start Exercise →</Button>
-    </Wrapper>
+      {allSets
+        ? allSets.map(cv => {
+            return <WorkoutSetCard data={cv} key={cv.id} />;
+          })
+        : "You have done nothing"}
+
+      <button onClick="SubmitHandler"> End Exercise</button>
+    </div>
   );
 };
 
@@ -94,7 +124,7 @@ const Button = styled.button`
 `;
 
 const Wrapper = styled.div`
-  background: white;
+  background: black;
   height: 100vh;
   width: 100vw;
   margin: 0 auto;
