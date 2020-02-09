@@ -18,7 +18,7 @@ const ExerciseCard = props => {
   return (
     <Link
       to={{
-        pathname: `/exercies/${props.data.id}`,
+        pathname: `/exercises/${props.data.id}`,
         state: {
           name: props.data.name
         }

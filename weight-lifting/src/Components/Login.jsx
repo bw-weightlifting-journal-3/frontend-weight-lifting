@@ -21,7 +21,7 @@ const Login = () => {
       )
       .then(res => {
         localStorage.setItem('token', res.data.token);
-        console.log(res);
+        console.log('token res', res);
       })
       .catch(err => {
         console.log('err', err);
@@ -30,8 +30,8 @@ const Login = () => {
 
   return (
     <Wrapper>
-      <Header style={{ color: 'red' }}>Login</Header>
-      <StyledForm onSubmit={SubmitHandler}>
+      <Header>Login and get lifting!</Header>
+      <form onSubmit={SubmitHandler}>
         <StyledInput
           name='email'
           type='text'
@@ -48,11 +48,9 @@ const Login = () => {
           onChange={changeHandler}
         />
         <br />
-        <StyledButton typeof='submit'>Login 🏋️‍</StyledButton>
-        <br />
-        <br />
-        <br />
-      </StyledForm>
+
+        <StyledButton typeof='submit'>LogIn 🏋️‍</StyledButton>
+      </form>
     </Wrapper>
   );
 };
@@ -60,51 +58,37 @@ const Login = () => {
 export default Login;
 
 const Header = styled.h3`
-  background-color: black;
-  color: 'red';
-  margin: auto;
-  padding: 0.5em;
-  border-radius: 10px;
-
-  @media (min-width: 500px) {
-    width: 80%;
-  }
-
-  @media (min-width: 750px) {
-    width: 50%;
-  }
+  padding: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid red;
 `;
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledForm = styled.form`
-  width: 40%;
-  margin: auto;
-  background: none;
+  margin: 1rem;
+  padding: 2rem;
+  background: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 8px 8px red;
 `;
 
 const StyledInput = styled.input`
-  margin: 0.5rem;
-  padding: 0.3rem;
-  border-radius: 10px;
-  border: none;
-  font-weight: bold;
-  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
 `;
 
 const StyledButton = styled.button`
   background: black;
   color: white;
   border-radius: 10px;
-  padding: 1.1em;
+  padding: 0.5rem;
   font-weight: bold;
   letter-spacing: 0.1em;
   border: none;
   &:hover {
     background: white;
     color: black;
+    border: 2px solid black;
   }
 `;

@@ -1,148 +1,153 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import SetList from './SetList';
+import AxiosWithAuth from '../utils/AxiosWithAuth';
+import WorkoutSetCard from './WorkoutSetCard';
 
 // Have to map over 'Sets'
 
 const AddWorkoutView = () => {
+  const [title, setTitle] = useState({
+    name: '',
+    region_id: '1',
+    timestamp: Date.now()
+  });
+  const titleHandler = e => {
+    setTitle({ ...title, [e.target.name]: e.target.value });
+  };
+
   const [addSet, setAddSet] = useState({
-    weight: '',
-    sets: ''
+    weight: 0,
+    reps: 0
   });
 
+  const [allSets, setAllSets] = useState([]);
+
   const changeHandler = e => {
-    setAddSet({ [e.target.name]: e.target.value });
+    setAddSet({ ...addSet, [e.target.name]: e.target.value });
   };
 
   const SubmitHandler = e => {
     e.preventDefault();
-    setAddSet({
-      weight: '',
-      sets: ''
-    });
+    AxiosWithAuth()
+      .post('api/exercises', title)
+      .then(res => {
+        console.log('post Res', res);
+        allSets.forEach(cv => {
+          AxiosWithAuth()
+            .post(`api/exercises/${res.data.id}/sets`, cv)
+            .then(result => {
+              console.log('result', result);
+            })
+            .catch(err => {
+              console.log('This is error', err);
+            });
+        });
+      });
+
+    console.log('title', title);
+    console.log('allSets', allSets);
+  };
+
+  const newSet = e => {
+    e.preventDefault();
+    setAllSets([...allSets, addSet]);
+    setAddSet({ weight: 0, reps: 0 });
   };
 
   return (
     <Wrapper>
-      {/* Input field to add sets */}
-      <Form onSubmit={SubmitHandler}>
-        <OuterDiv>
-          <DivLeft>
-            <h3>Weight</h3>
-            <Input
+      <button style={hideButton}
+        onClick={() => {
+          console.log('allSets', allSets);
+        }}>
+        State{' '}
+      </button>
+      <Header2>Log your workout:</Header2>
+      <Header>Lift type</Header>
+      <form onSubmit={''}>
+        <StyledInput
+          name='name'
+          type='text'
+          placeholder='Barbell Curls'
+          value={title.name}
+          onChange={titleHandler}
+        />
+        <div>
+          <div>
+            <Header>Weight</Header>
+            <StyledInput
               name='weight'
               type='text'
               placeholder='input weight'
               value={addSet.weight}
               onChange={changeHandler}
             />
-          </DivLeft>
-          <DivRight>
-            <h3>Sets</h3>
-            <Input
-              name='sets'
+          </div>
+          <div>
+            <Header>Reps</Header>
+            <StyledInput
+              name='reps'
               type='text'
-              placeholder='add sets'
-              value={addSet.sets}
+              placeholder='add Reps'
+              value={addSet.reps}
               onChange={changeHandler}
             />
-          </DivRight>
-        </OuterDiv>
+          </div>
+        </div>
 
-        <AddButton type='submit'>Add Set</AddButton>
-      </Form>
-      {/* Our sets will go here */}
-      {/* Link to the next page */}
-      <Button>Start Exercise →</Button>
+        <StyledButton onClick={newSet}>Add Sets</StyledButton>
+      </form>
+
+      {allSets
+        ? allSets.map(cv => {
+            return <WorkoutSetCard data={cv} key={cv.id} />;
+          })
+        : 'You have done nothing'}
+
+      <StyledButton onClick={SubmitHandler}> End Exercise</StyledButton>
     </Wrapper>
   );
 };
 
 export default AddWorkoutView;
 
-// All of our styled components
-const AddButton = styled.button`
-  position: fixed;
-  opacity: 0.8;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: black;
-  color: #ffc000;
-  text-align: center;
-  padding: 1.2rem;
-  font-size: 22px;
-  font-weight: bold;
-  border: none;
-`;
-
-const Button = styled.button`
-  position: fixed;
-  opacity: 0.8;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
-  padding: 1.2rem;
-  font-size: 1.5rem;
-  &:hover {
-    opacity: 1;
-  }
-`;
+const hideButton = {
+  display: 'none'
+};
 
 const Wrapper = styled.div`
+  margin: 1rem auto;
+  max-width: 500px;
+  padding: 2rem;
   background: white;
-  height: 100vh;
-  width: 100vw;
-  margin: 0 auto;
-  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 8px 8px red;
 `;
 
 const Header = styled.h3`
+  padding: 1rem;
+  font-weight: bold;
+`;
+const Header2 = styled.h3`
+  padding: 1rem;
+  font-weight: bold;
+  border-bottom: 5px solid black;
+`;
+
+const StyledInput = styled.input`
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+`;
+
+const StyledButton = styled.button `
   color: white;
-  text-align: left;
-  padding: 1.2rem;
-`;
-
-const Input = styled.input`
-  text-align: center;
-  margin: 1.3rem;
-  background: white;
+  margin: .5rem 0;
+  background: black;
+  padding: 1rem;
   border: none;
-  color: black;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  // background-color: black;
-`;
-
-const OuterDiv = styled.div``;
-
-const DivLeft = styled.div`
-  @media (min-width: 500px) {
-    background-color: black;
-    width: 500px;
-  }
-
-  @media (min-width: 750px) {
-    width: 100%;
-  }
-`;
-
-const DivRight = styled.div`
-  @media (min-width: 500px) {
-    background-color: black;
-    width: 500px;
-  }
-
-  @media (min-width: 750px) {
-    width: 100%;
-  }
-`;
+  border-radius: 8px;
+  width: 200px;
+  font-size: 1.2rem;
+`

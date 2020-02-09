@@ -30,13 +30,12 @@ const SetCard = props => {
       .delete(`/api/exercises/${props.match.params.id}/sets/${props.data.id}`)
       .then(res => {
         console.log(res);
+        props.setBois();
       })
       .catch(err => {
         console.log(err);
       });
   };
-
-  //api/exercises/:id/sets/:set_id
 
   return (
     <div>

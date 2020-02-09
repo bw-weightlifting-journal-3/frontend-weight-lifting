@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axiosWithAuth from "../utils/AxiosWithAuth";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import axiosWithAuth from '../utils/AxiosWithAuth';
+import styled from 'styled-components';
 
 const UserPage = () => {
     const [info, setInfo] = useState("");
@@ -59,13 +59,12 @@ const UserPage = () => {
 
 export default UserPage;
 
-const OuterDiv = styled.div`
-`
+const OuterDiv = styled.div``;
 const InnerDivLeft = styled.div`
-    background-color: black;
-    color: white;
-`
+  background-color: black;
+  color: white;
+`;
 const InnerDivRight = styled.div`
-    background-color: gray;
-    color: white;
-`
+  background-color: gray;
+  color: white;
+`;

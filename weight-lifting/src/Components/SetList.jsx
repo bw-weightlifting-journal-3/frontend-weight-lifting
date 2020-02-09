@@ -4,28 +4,36 @@ import SetCard from "./SetCard";
 import inputFieldContext from "../Context/UserContext";
 
 const SetList = props => {
+  console.log("using setlist");
   //global State
   const { inputField, setinputField, changeHandler } = useContext(
     inputFieldContext
   );
+  const [setInfo, setSetInfo] = useState([]);
 
-  const [setInfo, setSetInfo] = useState();
+  const addChangeHandler = e => {
+    setAddSet({ ...addSet, [e.target.name]: e.target.value });
+  };
 
-  useEffect(() => {
+  const [addSet, setAddSet] = useState({
+    reps: "",
+    weight: ""
+  });
+
+  function getSetBois() {
     AxiosWithAuth()
       .get(`api/exercises/${props.match.params.id}/sets`)
       .then(res => {
-        console.log("res", res);
+        console.log("setListRes", res);
         setSetInfo(res.data);
       })
       .catch(err => {
         console.log("this is error 1", err);
       });
-    setinputField({
-      reps: "",
-      weight: ""
-    });
-  }, [setSetInfo]);
+  }
+  useEffect(() => {
+    getSetBois();
+  }, []);
 
   const exerciseDelete = e => {
     e.preventDefault();
@@ -33,6 +41,7 @@ const SetList = props => {
       .delete(`/api/exercises/${props.match.params.id}`)
       .then(res => {
         console.log(res);
+        getSetBois();
       })
       .catch(err => {
         console.log("this is error 2", err);
@@ -42,9 +51,10 @@ const SetList = props => {
   const submitHandler = e => {
     e.preventDefault();
     AxiosWithAuth()
-      .post(`/api/exercises/${props.match.params.id}/sets`, inputField)
+      .post(`/api/exercises/${props.match.params.id}/sets`, addSet)
       .then(res => {
         console.log(res);
+        getSetBois();
       })
       .catch(err => {
         console.log("this is error 3", err);
@@ -60,15 +70,15 @@ const SetList = props => {
             name="reps"
             type="number"
             placeholder="reps"
-            value={inputField.reps}
-            onChange={changeHandler}
+            value={addSet.reps}
+            onChange={addChangeHandler}
           />
           <input
             name="weight"
             type="number"
             placeholder="weight"
-            value={inputField.weight}
-            onChange={changeHandler}
+            value={addSet.weight}
+            onChange={addChangeHandler}
           />
           <button type="submit"> Add Set</button>
         </div>
@@ -78,6 +88,9 @@ const SetList = props => {
         ? setInfo.map(cv => {
             return (
               <SetCard
+                setBois={() => {
+                  getSetBois();
+                }}
                 data={cv}
                 global={{ inputField, changeHandler }}
                 key={cv.id}

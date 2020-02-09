@@ -39,8 +39,8 @@ const SignUp = props => {
 
   return (
     <Wrapper>
-      <Header style={{ color: 'red' }}>Sign Up</Header>
-      <StyledForm onSubmit={SubmitHandler}>
+      <Header>Sign up and get at it!</Header>
+      <form onSubmit={SubmitHandler}>
         <StyledInput
           name='name'
           type='text'
@@ -65,8 +65,8 @@ const SignUp = props => {
           onChange={changeHandler}
         />
         <br />
-        <StyledButton typeof='submit'>Sign Up🏋️‍</StyledButton>
-      </StyledForm>
+        <StyledButton type='submit'>Sign-Up🏋️‍</StyledButton>
+      </form>
     </Wrapper>
   );
 };
@@ -74,56 +74,40 @@ const SignUp = props => {
 export default SignUp;
 
 const Header = styled.h3`
-  background-color: black;
-  color: 'red';
-  margin: auto;
-  padding: 0.5em;
-  border-radius: 10px;
 
-  @media (min-width: 500px) {
-    width: 80%;
-  }
-
-  @media (min-width: 750px) {
-    width: 50%;
-  }
+  padding: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid red;
 `;
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+  margin: 1rem;
+  padding: 2rem;
+  background: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 8px 8px red;
 
-const StyledForm = styled.form`
-  width: 40%;
-  margin: auto;
-  background: none;
-  display: flex;
-  flex-direction: column;
 `;
 
 const StyledInput = styled.input`
-  margin: 0.5rem;
-  padding: 0.3rem;
-  border-radius: 10px;
-  border: none;
-  font-weight: bold;
-  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
 `;
 
 const StyledButton = styled.button`
   background: black;
   color: white;
   border-radius: 10px;
-  padding: 1.1em;
+  padding: 0.5rem;
   font-weight: bold;
   letter-spacing: 0.1em;
   border: none;
-  margin-top: 0.5em;
-  width: 80%;
   &:hover {
     background: white;
     color: black;
+    border: 2px solid black;
   }
 
   @media (min-width: 500px) {

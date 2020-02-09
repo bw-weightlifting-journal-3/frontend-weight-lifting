@@ -10,33 +10,18 @@ import PersonalRecord from './PersonalRecord';
 
 import ExerciseList from './ExerciseList';
 import SetList from './SetList';
-import InputFieldContext from '../Context/UserContext';
+
 import Arrow from '../assets/arrow.svg';
 
 const HomeView = () => {
-  const changeHandler = e => {
-    setinputField({ ...inputField, [e.target.name]: e.target.value });
-  };
-
-  const [inputField, setinputField] = useState({
-    reps: '',
-    weight: ''
-  });
   return (
     <div className='master_container'>
       <Wrapper>
-        {/* Bring in Personal Record Component */}
         <PersonalRecord />
         {/* Map over workouts created */}
 
-        <InputFieldContext.Provider
-          value={{ inputField, setinputField, changeHandler }}>
-          <Router>
-            <Route exact path='/' component={ExerciseList} />
-            <Route exact path='/exercies/:id' component={SetList} />
-          </Router>
-        </InputFieldContext.Provider>
-        
+        <ExerciseList />
+
         {/* Link to the next page */}
         <Button>
           Start Exercise <img src={Arrow} alt='arrow icon' />{' '}
