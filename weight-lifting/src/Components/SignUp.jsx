@@ -48,6 +48,7 @@ const SignUp = props => {
           value={credentials.name}
           onChange={changeHandler}
         />
+        <br />
         <StyledInput
           name='email'
           type='text'
@@ -64,7 +65,7 @@ const SignUp = props => {
           onChange={changeHandler}
         />
         <br />
-        <StyledButton type='submit'>Sign-Up🏋️‍</StyledButton>
+        <StyledButton typeof='submit'>Sign Up🏋️‍</StyledButton>
       </StyledForm>
     </Wrapper>
   );
@@ -75,22 +76,30 @@ export default SignUp;
 const Header = styled.h3`
   background-color: black;
   color: 'red';
-  width: 100%;
+  margin: auto;
   padding: 0.5em;
   border-radius: 10px;
+
+  @media (min-width: 500px) {
+    width: 80%;
+  }
+
+  @media (min-width: 750px) {
+    width: 50%;
+  }
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 45%;
-  margin: auto;
 `;
 
 const StyledForm = styled.form`
   width: 40%;
   margin: auto;
   background: none;
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledInput = styled.input`
@@ -115,5 +124,9 @@ const StyledButton = styled.button`
   &:hover {
     background: white;
     color: black;
+  }
+
+  @media (min-width: 500px) {
+    width: 140px;
   }
 `;

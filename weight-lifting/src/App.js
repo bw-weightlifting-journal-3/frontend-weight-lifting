@@ -8,6 +8,7 @@ import HomeView from './Components/HomeView';
 import AddWorkoutView from './Components/AddWorkoutView';
 import DetailsView from './Components/DetailsView';
 import Credentials from './Components/Credentials';
+import UserPage from './Components/UserPage'
 // importing Private Route
 import PrivateRoute from './Components/PrivateRoute';
 
@@ -22,7 +23,7 @@ function App() {
         <PrivateRoute exact path='/home' component={HomeView} />
         <PrivateRoute exact path='/add' component={AddWorkoutView} />
         <PrivateRoute exact path='/details' component={DetailsView} />
-        
+        <PrivateRoute exact path='/userinfo' component={UserPage} />
       </Switch>
     </div>
   );

@@ -30,12 +30,12 @@ const Login = () => {
 
   return (
     <Wrapper>
-      <h1>Login</h1>
+      <Header style={{ color: 'red' }}>Login</Header>
       <StyledForm onSubmit={SubmitHandler}>
         <StyledInput
           name='email'
           type='text'
-          placeholder='email'
+          placeholder='E-mail'
           value={inputField.email}
           onChange={changeHandler}
         />
@@ -43,18 +43,37 @@ const Login = () => {
         <StyledInput
           name='password'
           type='password'
-          placeholder='password'
+          placeholder='Password'
           value={inputField.password}
           onChange={changeHandler}
         />
         <br />
-        <StyledButton typeof='submit'>LogIn 🏋️‍</StyledButton>
+        <StyledButton typeof='submit'>Login 🏋️‍</StyledButton>
+        <br />
+        <br />
+        <br />
       </StyledForm>
     </Wrapper>
   );
 };
 
 export default Login;
+
+const Header = styled.h3`
+  background-color: black;
+  color: 'red';
+  margin: auto;
+  padding: 0.5em;
+  border-radius: 10px;
+
+  @media (min-width: 500px) {
+    width: 80%;
+  }
+
+  @media (min-width: 750px) {
+    width: 50%;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
