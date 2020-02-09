@@ -35,7 +35,7 @@ const Login = () => {
         <StyledInput
           name='email'
           type='text'
-          placeholder='email'
+          placeholder='E-mail'
           value={inputField.email}
           onChange={changeHandler}
         />
@@ -43,11 +43,12 @@ const Login = () => {
         <StyledInput
           name='password'
           type='password'
-          placeholder='password'
+          placeholder='Password'
           value={inputField.password}
           onChange={changeHandler}
         />
         <br />
+
         <StyledButton typeof='submit'>LogIn 🏋️‍</StyledButton>
       </form>
     </Wrapper>

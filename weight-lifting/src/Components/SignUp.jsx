@@ -48,6 +48,7 @@ const SignUp = props => {
           value={credentials.name}
           onChange={changeHandler}
         />
+        <br />
         <StyledInput
           name='email'
           type='text'
@@ -73,6 +74,7 @@ const SignUp = props => {
 export default SignUp;
 
 const Header = styled.h3`
+
   padding: 1rem;
   font-weight: bold;
   border-bottom: 1px solid red;
@@ -85,6 +87,7 @@ const Wrapper = styled.div`
   border: 2px solid black;
   border-radius: 5px;
   box-shadow: 8px 8px red;
+
 `;
 
 const StyledInput = styled.input`
@@ -105,5 +108,9 @@ const StyledButton = styled.button`
     background: white;
     color: black;
     border: 2px solid black;
+  }
+
+  @media (min-width: 500px) {
+    width: 140px;
   }
 `;

@@ -61,6 +61,11 @@ const Navigation = props => {
                 Login
               </Link>
             </NavItem>
+            <NavItem>
+              <Link style={li} to='/userinfo'>
+                User Info
+              </Link>
+            </NavItem>
             {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle>≡</DropdownToggle>
               <DropdownMenu left>
