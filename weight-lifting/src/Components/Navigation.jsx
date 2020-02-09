@@ -57,11 +57,6 @@ const Navigation = props => {
               </Link>
             </NavItem>
             <NavItem>
-              <Link style={li} to='/details'>
-                Workout Details
-              </Link>
-            </NavItem>
-            <NavItem>
               <Link style={li} to='/'>
                 Login
               </Link>

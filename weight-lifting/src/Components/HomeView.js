@@ -1,23 +1,22 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "../App.css";
-import styled from "styled-components";
-import PersonalRecord from "./PersonalRecord";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import '../App.css';
+import styled from 'styled-components';
+import PersonalRecord from './PersonalRecord';
 
 // Have to pull in Personal Record component
 // Have to map over 'Exercises'
 
-import ExerciseList from "./ExerciseList";
-import SetList from "./SetList";
+import ExerciseList from './ExerciseList';
+import SetList from './SetList';
 
-import Arrow from "../assets/arrow.svg";
+import Arrow from '../assets/arrow.svg';
 
 const HomeView = () => {
   return (
-    <div className="master_container">
+    <div className='master_container'>
       <Wrapper>
-        {/* Bring in Personal Record Component */}
         <PersonalRecord />
         {/* Map over workouts created */}
 
@@ -25,7 +24,7 @@ const HomeView = () => {
 
         {/* Link to the next page */}
         <Button>
-          Start Exercise <img src={Arrow} alt="arrow icon" />{" "}
+          Start Exercise <img src={Arrow} alt='arrow icon' />{' '}
         </Button>
       </Wrapper>
     </div>

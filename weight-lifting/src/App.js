@@ -34,7 +34,6 @@ function App() {
           <PrivateRoute exact path="/home" component={HomeView} />
           <Route path="/exercises/:id" component={SetList} />
           <PrivateRoute exact path="/add" component={AddWorkoutView} />
-          <PrivateRoute exact path="/details" component={DetailsView} />
         </Router>
       </InputFieldContext.Provider>
     </div>
