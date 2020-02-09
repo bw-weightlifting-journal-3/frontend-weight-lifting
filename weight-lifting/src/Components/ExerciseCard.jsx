@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Arrow from "../assets/arrow.svg";
+import React, { useState, useEffect } from 'react';
+import Arrow from '../assets/arrow.svg';
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import axiosWithAuth from "../utils/AxiosWithAuth";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import axiosWithAuth from '../utils/AxiosWithAuth';
 
 const ExerciseCard = props => {
   const [region, setRegion] = useState();
@@ -22,16 +22,15 @@ const ExerciseCard = props => {
         state: {
           name: props.data.name
         }
-      }}
-    >
-      <div className="ex_card_container">
-        <div className="ex_titleInfo">
+      }}>
+      <div className='ex_card_container'>
+        <div className='ex_titleInfo'>
           <h2>{props.data.name}</h2>
           <p>
             Sets: {props.sets.length} | {region}
           </p>
         </div>
-        <img src={Arrow} alt="arrow icon" />
+        <img src={Arrow} alt='arrow icon' />
       </div>
     </Link>
   );

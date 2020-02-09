@@ -1,16 +1,22 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import Login from './Login';
 import SignUp from './SignUp';
 
 const Credentials = () => {
   return (
-    <div>
-        <h3>Let's get started! (Credentials Page)</h3>
+    <Wrapper>
       <Login />
       <SignUp />
-    </div>
+    </Wrapper>
   );
 };
 
 export default Credentials;
+
+const Wrapper = styled.div`
+  max-width: 500px;
+  margin: auto;
+`
+
+
